@@ -1,0 +1,79 @@
+<div class="container-lg content mt-5 mb-5 justify-content-center">
+	
+	<div class="row mt-2 justify-content-center">
+		<div class="col-md-8 ">
+			<h3>Профиль</h3>
+		</div>
+	</div>
+	<!-- Фото и ФИО -->
+	<form>
+	<div class="row mt-3 justify-content-center">
+		<div class="col-md-2 ">
+			<div class="person-photo"></div>
+		</div>
+		<div class="col-md-6 align-self-end">
+			<h6>ФИО</h6>
+			<input type="text" id="name" class="form-control">
+			<h6 class="mt-2">Номер телефона</h6>
+			<input type="text" id="phone-number" class="form-control">
+		</div>
+	</div>
+	<!--- -->
+	<!-- Инфо -->
+	<div class="row mt-5 mb-5 justify-content-center">
+		<div class="col-md-8 person-data">
+			<!-- Персональные данные -->
+			<h6>Пол</h6>
+			<div class="form-check sex-check">
+				<div class="sex-check-item">
+					<input class="form-check-input align-self-center" id="male" type="radio" name="sex" value="male">
+					<label class="sex-check-label align-self-center" for="male">
+						Мужской
+					</label>
+				</div>
+				<div class="sex-check-item">
+					<input class="form-check-input align-self-center" id="female" type="radio" name="sex" value="female">
+					<label class="sex-check-label align-self-center" for="female">
+						Женский
+					</label>
+				</div>
+			</div>
+			
+			<h6 class="mt-4">Возраст</h6>
+			<input type="text" id="age" class="form-control" placeholder="18">
+
+			<h6 class="mt-4">Город</h6>
+			<input type="text" id="city" class="form-control" placeholder="Москва">
+
+			<h6 class="mt-4">Образование</h6>
+			<input type="text" id="specialty" class="form-control" placeholder="Высшее, среднее профессиональное, среднее">
+
+			<h6 class="mt-4">Специальность</h6>
+			<input type="text" id="specialty" class="form-control" placeholder="Системный администратор">
+
+			<h6 class="mt-4">Опыт работы</h6>
+			<select class="form-select" aria-label="Default select example">
+				<option value="1">Нет</option>
+				<option value="2">Более 1 год</option>
+				<option value="3">Более 3 лет</option>
+				<option value="4">Более 5 лет</option>
+				<option value="5">Более 10 лет</option>
+			</select>
+
+			<h6 class="mt-4">Желаемый график работы</h6>
+			<select class="form-select" aria-label="Default select example">
+				<option value="1">Полный день</option>
+				<option value="2">Неполный день</option>
+				<option value="3">Плавающий</option>
+				<option value="4">Вахтовый</option>
+			</select>
+
+			<h6 class="mt-4">Желаемая зарплата</h6>
+			<input type="number" id="specialty" class="form-control" placeholder="75000">
+
+			<button class="mt-4 btn btn-primary align-self-end" type="submit">Сахранить</button>
+			
+		</div>
+	</div>
+	</form>
+</div>

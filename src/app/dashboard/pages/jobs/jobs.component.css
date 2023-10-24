@@ -1,0 +1,18 @@
+
+/* Замена цвета кнокпи bootstarp */
+.btn{
+	background: var(--components-bg);
+	border-color: var(--components-bg);
+}
+
+.search-bar{
+	background:var(--bg);
+	position: sticky;
+	top:0;
+}
+
+.filter-item{
+	font-size: 14px;
+	font-weight: 500;
+	height:30px;
+}

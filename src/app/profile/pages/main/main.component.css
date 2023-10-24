@@ -1,0 +1,57 @@
+.container{
+	display:flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.content{
+
+	padding:10px;
+	border-radius:10px;
+	background: var(--bs-white);
+	border: 1px solid var(--bs-gray-200);
+}
+
+.person-photo{
+	padding:10px;
+	background: #e8e8e8;
+	border-radius:5px;
+	height:200px;
+}
+
+.username{
+	height:40px;
+	padding-left: 5px;
+	width: 100%;
+	border:2px solid var(--components-bg);
+	border-radius:5px;
+	outline: none;
+
+}
+
+/* Классы для выбора пола*/
+.sex-check{
+	display: flex;
+	flex-direction: column;
+}
+
+.sex-check-item{
+	display: flex;
+	margin-top: 5px;
+}
+
+.sex-check-label{
+	font-size: 18px;
+	padding-left: 10px;
+}
+
+/* Классы для стилизации персональных данных */
+.person-data{
+	display:flex;
+	flex-direction: column;
+}
+
+.btn{
+	background: var(--components-bg);
+	border-color: var(--components-bg);
+}

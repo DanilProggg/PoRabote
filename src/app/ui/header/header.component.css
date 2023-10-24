@@ -1,0 +1,113 @@
+
+
+header{
+	height: 60px;
+	background: var(--components-bg);
+	color: white;
+}
+
+.header-bar{
+	height:100%;
+}
+
+.header-menu{
+	display:flex;
+}
+
+nav{
+	display:flex;
+	justify-content: space-around;
+}
+
+.nav-item{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+
+	padding:0 10px;
+	color: white;
+
+	text-decoration: none;
+}
+
+.nav-item:hover{
+	cursor: pointer;
+	background: var(--hover-component-bg);
+	transition: .2s;
+}
+
+.container{
+	height:100%;
+}
+
+.title{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+
+	font-size: 2em;
+	color: white;
+}
+
+.user_info{
+	display: flex;
+	justify-content: center;
+}
+
+.user_name{
+	display: flex;
+	align-items: center;
+}
+
+.user_info .img-container {
+	width:60px;
+	padding: 8px;
+}
+
+.dafault_user_icon{
+	width:100%;
+	height:100%;
+	padding: 10px;
+	border: 1px solid white;
+	border-radius: 50%;
+	background: white;
+}
+
+.user_info-dropdown{
+	display:none;
+	top:60px;
+	position:fixed;
+
+	padding:10px;
+	color:black;
+
+	border-radius:5px;
+	background: var(--bs-gray-100);
+
+	z-index: 999;
+}
+
+.dropdown-item{
+	padding:4px 8px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	font-weight: 400;
+}
+
+.dropdown-item:hover{
+	background: var(--bs-gray-200);
+}
+
+.logout-btn{
+	padding:2px 0;
+	font-size: 16px;
+}
+
+/* Выпадающий списко */
+
+.user_info:hover .user_info-dropdown{
+	display:flex;
+	flex-direction:column;
+}
+
+
