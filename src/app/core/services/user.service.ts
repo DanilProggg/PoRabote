@@ -12,15 +12,15 @@ export class UserService {
   constructor(private http: HttpClient/*,private router: Router*/) {}
 
   private email = ""
-  getEmail():string{
-    return this.email;
+  getEmail(){
+    return this.email
   }
   setEmail(email:string):void{
     this.email = email
   }
   private password = ""
-   getPassword():string{
-    return this.password;
+   getPassword(){
+    return this.password
   }
   setPassword(password:string):void{
     this.password = password
@@ -34,7 +34,12 @@ export class UserService {
         }
 
         this.http.get('http://localhost:8080/api/user', header).subscribe(response => {
-            console.log(response);
+            if(response){
+              this.setEmail(email)
+              this.setPassword(password)
+            } else{
+              
+            }
         });
 
   }

@@ -24,10 +24,6 @@ export class AuthComponent implements OnInit{
   }
 
   onSubmit(){
-    const user = {
-      email: this.form.value.email,
-      password: this.form.value.email
-    }
     this.auth.authenticate(this.form.value.email,this.form.value.password);
   }
 
