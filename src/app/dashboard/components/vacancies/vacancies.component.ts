@@ -1,87 +1,27 @@
-import { Component } from '@angular/core';
-import { IVacancy } from '../../../core/models/vacancy.model'
+import { Component, OnInit} from '@angular/core';
+import { IVacancy } from '../../../core/models/vacancy.model';
+import { VacancyService } from '../../../core/services/vacancy.service';
 
 @Component({
   selector: 'app-vacancies',
   templateUrl: './vacancies.component.html',
   styleUrls: ['./vacancies.component.css']
 })
-export class VacanciesComponent {
+export class VacanciesComponent implements OnInit{
+  
 
-  vacancies : IVacancy[] = [
-      {
-        id:0,
-        title:"Системный администратор",
-        salary:70000,
-        experience:"Нет",
-        organization:"ООО Тиннькоф",
-        work_time:"Полный рабочий день",
-      },
-       {
-        id:1,
-        title:"Водитель телескопического погрузчика",
-        salary:70000,
-        experience:"Нет",
-        organization:"ООО ОЭМК",
-        work_time:"Вахтовый метод",
-      },
-       {
-        id:2,
-        title:"Програмист",
-        salary:70000,
-        experience:"Нет",
-        organization:"ООО Стойльнский гок",
-        work_time:"Неполный рабочий день",
-      },
-      {
-        id:0,
-        title:"Системный администратор",
-        salary:70000,
-        experience:"Нет",
-        organization:"ООО Тиннькоф",
-        work_time:"Полный рабочий день",
-      },
-       {
-        id:1,
-        title:"Водитель телескопического погрузчика",
-        salary:70000,
-        experience:"Нет",
-        organization:"ООО ОЭМК",
-        work_time:"Вахтовый метод",
-      },
-       {
-        id:2,
-        title:"Програмист",
-        salary:70000,
-        experience:"Нет",
-        organization:"ООО Стойльнский гок",
-        work_time:"Неполный рабочий день",
-      },
-      {
-        id:0,
-        title:"Системный администратор",
-        salary:70000,
-        experience:"Нет",
-        organization:"ООО Тиннькоф",
-        work_time:"Полный рабочий день",
-      },
-       {
-        id:1,
-        title:"Водитель телескопического погрузчика",
-        salary:70000,
-        experience:"Нет",
-        organization:"ООО ОЭМК",
-        work_time:"Вахтовый метод",
-      },
-       {
-        id:2,
-        title:"Програмист",
-        salary:70000,
-        experience:"Нет",
-        organization:"ООО Стойльнский гок",
-        work_time:"Неполный рабочий день",
-      },
-     
-    ];
+  vacancies : IVacancy[] = [];
+
+  constructor(private vacancyService:VacancyService){
+
+  }
+
+  //Подгрузка вакансий при загрузке компонента
+  ngOnInit(): void{
+      this.vacancyService.getAll().subscribe( vacancies =>{
+        this.vacancies = vacancies
+      })
+  }
+  
 
 }

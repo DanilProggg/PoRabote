@@ -1,4 +1,4 @@
-<div class="container-lg content mt-5 mb-5 justify-content-center">
+<div class="container-lg content my-5 p-1 justify-content-center">
 	
 	<div class="row mt-2 justify-content-center">
 		<div class="col-md-8 ">
@@ -12,10 +12,14 @@
 			<div class="person-photo"></div>
 		</div>
 		<div class="col-md-6 align-self-end">
-			<h6>ФИО</h6>
-			<input type="text" id="name" class="form-control">
-			<h6 class="mt-2">Номер телефона</h6>
-			<input type="text" id="phone-number" class="form-control">
+			<div class="form-floating mb-4">
+			    <input type="text" class="form-control shadow-sm" id="name" placeholder="" value="">
+			    <label for="name">ФИО</label>
+			</div>
+			<div class="form-floating">
+			    <input type="text" class="form-control shadow-sm" id="phone_number" placeholder="" value="">
+			    <label for="phone_number">Номер телефона</label>
+			</div>
 		</div>
 	</div>
 	<!--- -->
@@ -24,7 +28,7 @@
 		<div class="col-md-8 person-data">
 			<!-- Персональные данные -->
 			<h6>Пол</h6>
-			<div class="form-check sex-check">
+			<div class="form-check sex-check mb-2">
 				<div class="sex-check-item">
 					<input class="form-check-input align-self-center" id="male" type="radio" name="sex" value="male">
 					<label class="sex-check-label align-self-center" for="male">
@@ -39,37 +43,53 @@
 				</div>
 			</div>
 			
-			<h6 class="mt-4">Возраст</h6>
-			<input type="text" id="age" class="form-control" placeholder="18">
+			<div class="form-floating mb-4">
+			    <input type="text" class="form-control shadow-sm" id="age" placeholder="" value="">
+			    <label for="age">Возраст</label>
+			</div>
 
-			<h6 class="mt-4">Город</h6>
-			<input type="text" id="city" class="form-control" placeholder="Москва">
+			<div class="form-floating mb-4">
+			    <input type="text" class="form-control shadow-sm" id="city" placeholder="" value="">
+			    <label for="city">Город</label>
+			</div>
 
-			<h6 class="mt-4">Образование</h6>
-			<input type="text" id="specialty" class="form-control" placeholder="Высшее, среднее профессиональное, среднее">
+			<div class="form-floating mb-4">
+			    <input type="text" class="form-control shadow-sm" id="education" placeholder="" value="">
+			    <label for="education">Образование</label>
+			</div>
+			
+			<div class="form-floating mb-4">
+			    <input type="text" class="form-control shadow-sm" id="specialty" placeholder="" value="">
+			    <label for="specialty">Специальность</label>
+			</div>
 
-			<h6 class="mt-4">Специальность</h6>
-			<input type="text" id="specialty" class="form-control" placeholder="Системный администратор">
 
-			<h6 class="mt-4">Опыт работы</h6>
-			<select class="form-select" aria-label="Default select example">
-				<option value="1">Нет</option>
-				<option value="2">Более 1 год</option>
-				<option value="3">Более 3 лет</option>
-				<option value="4">Более 5 лет</option>
+			<div class="form-floating mb-4">
+				<select class="form-select" id="experience" aria-label="Floating label select example">
+			    	<option value="1">Нет</option>
+					<option value="2">Более 1 год</option>
+					<option value="3">Более 3 лет</option>
+					<option value="4">Более 5 лет</option>
 				<option value="5">Более 10 лет</option>
-			</select>
+			  	</select>
+			  	<label for="experience">Опыт работы</label>
+			</div>
 
-			<h6 class="mt-4">Желаемый график работы</h6>
-			<select class="form-select" aria-label="Default select example">
-				<option value="1">Полный день</option>
-				<option value="2">Неполный день</option>
-				<option value="3">Плавающий</option>
-				<option value="4">Вахтовый</option>
-			</select>
+			<div class="form-floating mb-4">
+				<select class="form-select" id="working_time" aria-label="Floating label select example">
+			    	<option value="1">Полный день</option>
+					<option value="2">Неполный день</option>
+					<option value="3">Плавающий</option>
+					<option value="4">Вахтовый</option>
+			  	</select>
+			  	<label for="working_time">Желаемый график работы</label>
+			</div>
 
-			<h6 class="mt-4">Желаемая зарплата</h6>
-			<input type="number" id="specialty" class="form-control" placeholder="75000">
+
+			<div class="form-floating mb-4">
+			    <input type="text" class="form-control shadow-sm" id="salary" placeholder="" value="">
+			    <label for="salary">Желаемая зарплата</label>
+			</div>
 
 			<button class="mt-4 btn btn-primary align-self-end" type="submit">Сахранить</button>
 			

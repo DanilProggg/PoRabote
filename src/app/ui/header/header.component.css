@@ -82,7 +82,7 @@ nav{
 	color:black;
 
 	border-radius:5px;
-	background: var(--bs-gray-100);
+	background: var(--bs-gray-300);
 
 	z-index: 999;
 }
@@ -95,7 +95,7 @@ nav{
 }
 
 .dropdown-item:hover{
-	background: var(--bs-gray-200);
+	background: #84be68;
 }
 
 .logout-btn{

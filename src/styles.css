@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;1,500&display=swap');
 
 :root{
-	--components-bg: #007df7;/* #05ac00 */
-	--hover-component-bg:#1f80de;
+	--components-bg: #2d8c15;/*  #007df7 #448ba0*/
+	--hover-component-bg:#226b10;
 	--bg: var(--bs-gray-100);
 }
 
@@ -13,10 +13,27 @@ body{
 	background: var(--bg);
 }
 
-.btn-primary{
-	background: var(--components-bg);
-	border-color: var(--components-bg);
+/* Переопредление стилей кнопки бутстрапа */
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--components-bg);
+    --bs-btn-border-color: var(--components-bg);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--hover-component-bg);
+    --bs-btn-hover-border-color: var(--hover-component-bg);
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--hover-component-bg);
+    --bs-btn-active-border-color: var(--hover-component-bg);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
 }
+
+
+.
+
 
 /* Глобальные стили */
 .w-100{

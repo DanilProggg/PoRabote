@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { UserService } from './core/services/user.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PoRabote';
+
+  
+
 }

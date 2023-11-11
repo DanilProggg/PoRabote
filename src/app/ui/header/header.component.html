@@ -2,27 +2,31 @@
 	<div class="container">
 		<div class="header-bar row ">
 			<!-- Лого -->
-			<a class="col-md-3 title justify-content-start"
+			<a class="col-lg-3 .col-md-3 title justify-content-start"
 				routerLink="/dashboard"
             	>ПоРаботе</a>
-			<div class="col-md-6 header-menu">
+			<div class="col-lg-7 .col-md-6 header-menu">
 				<!-- Навигационные ссылки -->
 				<nav class="">
 				<a class="nav-item"
-				   routerLink="/dashboard/peoples"
+				   routerLink="/dashboard/workers"
 				   routerLinkActive="active-link"
 				   >Поиск кадров</a>
 				</nav>
 				<div class=""></div>
 			</div>
 			<!-- Аккаунт -->
-			<div class="col-md-3 user_info justify-content-end">
-				<div class="user_name">{{username}}</div>
-				<div class="img-container"><img class="dafault_user_icon" src="../assets/images/person-fill.svg" alt=""></div> <!-- Цвет иконки выставлен в svg файле -->
+			<div class="col-lg-2 .col-md-3 user_info justify-content-end">
+				<div *ngIf="status" class="d-flex ghost">
+					<div class="user_name">{{status}}</div>
+					<div class="img-container"><img class="dafault_user_icon" src="../assets/images/person-fill.svg" alt=""></div>
+				</div> 
+				<!-- Цвет иконки выставлен в svg файле -->
 				<!-- выпадающий список -->
 				<div class="user_info-dropdown shadow">
 					<a routerLink="/user" class="dropdown-item">Профиль</a>
 					<a routerLink="/user" class="dropdown-item">Изобраное</a>
+					<a routerLink="/user" class="dropdown-item">Мои резюме</a>
 					<a routerLink="/user/notices" class="dropdown-item">Мои объявления</a>
 					<a routerLink="/user/create-notice" class="dropdown-item">Создать объявление</a>
 					<button class="logout-btn mt-1 btn btn-primary" >Выйти</button>

@@ -1,7 +1,8 @@
 export interface IVacancy{
 	id: number,
-	title: string,
+	post: string,
 	salary?: number,
+	description:string,
 	organization: string,
 	experience:string,
 	work_time: string,

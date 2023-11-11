@@ -9,6 +9,7 @@ import { JobsComponent } from './pages/jobs/jobs.component';
 import { PeoplesComponent } from './pages/peoples/peoples.component';
 import { VacanciesComponent } from './components/vacancies/vacancies.component';
 import { VacanciesItemComponent } from './components/vacancies-item/vacancies-item.component';
+import { VacancyPageComponent } from './pages/vacancy-page/vacancy-page.component';
 
 
 
@@ -21,6 +22,7 @@ import { VacanciesItemComponent } from './components/vacancies-item/vacancies-it
         PeoplesComponent,
         VacanciesComponent,
         VacanciesItemComponent,
+        VacancyPageComponent,
     
   ],
     imports: [

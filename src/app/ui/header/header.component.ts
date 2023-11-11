@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../../core/services/user.service';
 
 @Component({
   selector: 'main-header',
@@ -6,7 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  username:string = 'Danil Krivobok';
+  
+  constructor(private auth: UserService){}
 
+  status:boolean = /*this.auth.authenticated*/true;
+
+ 
   
 }

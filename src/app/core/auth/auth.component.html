@@ -1,0 +1,38 @@
+<div class="container auth">
+	<div class="row justify-content-center">
+		<div class="col-md-5">
+			<form
+				[formGroup] = "form"
+				(ngSubmit) = "onSubmit()"
+				>
+				<div class="form-bg shadow-sm">
+					<label class="action">Вход</label>
+					<div class="mb-3">
+					    <label for="email" class="form-label">Email</label>
+					    <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="email">
+					    <span class="ms-1 text-danger"
+					    *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+					    >
+					    	<span *ngIf="form.get('email')?.errors?.['required']">Email не должен быть пустым</span>
+					    	<span *ngIf="form.get('email')?.errors?.['email']">Email введен не коректно</span>
+					    </span>
+					</div>
+					<div class="mb-3">
+					    <label for="password" class="form-label">Пароль</label>
+					    <input formControlName="password" type="password" class="form-control" id="password">
+					  <!--  <span class="ms-1 text-danger"
+					    *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
+					    >
+					    	<span *ngIf="form.get('password')?.errors?.['required']">Пароль не должен быть пустым</span>
+					    	<span *ngIf="form.get('password')?.errors?.['minlength'] && form.get('password')?.errors?.['minlength']['requiredLength']">
+					    		Пароль должен состоять из минимум {{form.get('password')?.errors?.['minlength']['requiredLength']}} символов
+					    	</span>
+					    </span> -->
+					</div>
+					<button type="submit" class="mt-2 btn btn-primary w-100">Войти</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+

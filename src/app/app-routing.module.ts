@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import {  DashboardModule } from './dashboard/dashboard.module';
 import { ProfileModule } from './profile/profile.module';
+import { AuthComponent } from './core/auth/auth.component';
 
 const routes: Routes = [
     {
@@ -12,6 +13,10 @@ const routes: Routes = [
     {
       path: 'user',
       loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
+    },
+    {
+      path: 'auth',
+      component:AuthComponent
     }
   ];
 
