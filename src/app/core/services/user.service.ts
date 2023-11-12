@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 /*import { Router } from '@angular/router';*/
 
 @Injectable({
@@ -10,7 +11,7 @@ export class UserService {
 
   authenticated = false;
 
-  constructor(private http: HttpClient/*,private router: Router*/) {}
+  constructor(private http: HttpClient,private cookieService: CookieService/*,private router: Router*/) {}
 
   private email = ""
   public getEmail(): string{
@@ -40,6 +41,8 @@ export class UserService {
               this.setEmail(email)
               this.setPassword(password)
               this.authenticated = true
+              this.cookieService.set('login', this.getEmail());
+              this.cookieService.set('password', this.getPassword());
             }
         });
 

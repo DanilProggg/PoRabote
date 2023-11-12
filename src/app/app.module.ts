@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { HeaderComponent } from './ui/header/header.component';
 import { AuthComponent } from './core/auth/auth.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -30,7 +31,9 @@ import { AuthComponent } from './core/auth/auth.component';
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [
+    CookieService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

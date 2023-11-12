@@ -1,32 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserService } from '../../core/services/user.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'main-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit{
-  constructor(private auth: UserService, private http:HttpClient){}
-  status:boolean = false;
+export class HeaderComponent implements OnInit,AfterContentChecked{
+  constructor(private auth: UserService, private http:HttpClient,private cookieService: CookieService,private router: Router){}
+
+  user: string = ""
+  authStatus: boolean
+
 
   ngOnInit() {
-    const header = {
-      headers: new HttpHeaders()
-        .set('Authorization',  'Basic ' + btoa(this.auth.getEmail() + ':' + this.auth.getPassword()))
+    if(this.cookieService.check('login')){
+      this.user = this.cookieService.get('login')
+      this.authStatus = true
+    } else {
+      this.authStatus = false
     }
+  }
 
-    this.http.get('http://localhost:8080/api/user', header).subscribe(response => {
-      if(response){
-        this.status = true
-        console.log("Header status")
-      } else{
-        this.status = false
-      }
-    });  
+  ngAfterContentChecked(){
+    if(this.cookieService.check('login')){
+      this.user = this.cookieService.get('login')
+      this.authStatus = true
+    } else {
+      this.authStatus = false
+      console.log("sad")
+    }
   }
-  onPress(){
-    console.log(this.auth.getEmail(), this.auth.getPassword())
+
+  logout(): void{
+    this.cookieService.delete('login');
+    this.cookieService.delete('password');
+    this.authStatus = false
   }
+
 }
