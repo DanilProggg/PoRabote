@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 /*import { Router } from '@angular/router';*/
 
 @Injectable({
@@ -12,18 +13,19 @@ export class UserService {
   constructor(private http: HttpClient/*,private router: Router*/) {}
 
   private email = ""
-  getEmail(){
-    return this.email
+  public getEmail(): string{
+    return this.email;
   }
   setEmail(email:string):void{
-    this.email = email
+    this.email = email;
   }
+
   private password = ""
-   getPassword(){
-    return this.password
+  public getPassword(): string{
+    return this.password;
   }
   setPassword(password:string):void{
-    this.password = password
+    this.password = password;
   }
 
   authenticate(email:string,password:string) {
@@ -37,8 +39,7 @@ export class UserService {
             if(response){
               this.setEmail(email)
               this.setPassword(password)
-            } else{
-              
+              this.authenticated = true
             }
         });
 

@@ -8,6 +8,7 @@ import { NoticesComponent } from './pages/notices/notices.component';
 
 
 
+
 @NgModule({
   declarations: [
     ProfileComponent,

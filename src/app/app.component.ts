@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'PoRabote';
+  authenticated:string = "hello"
 
   
 

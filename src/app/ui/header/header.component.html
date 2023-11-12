@@ -14,10 +14,12 @@
 				   >Поиск кадров</a>
 				</nav>
 				<div class=""></div>
+				<button class="btn btn-primary"
+				(click)="onPress()">Тест</button>
 			</div>
 			<!-- Аккаунт -->
 			<div class="col-lg-2 .col-md-3 user_info justify-content-end">
-				<div *ngIf="status" class="d-flex ghost">
+				<div class="d-flex ghost">
 					<div class="user_name">{{status}}</div>
 					<div class="img-container"><img class="dafault_user_icon" src="../assets/images/person-fill.svg" alt=""></div>
 				</div> 
