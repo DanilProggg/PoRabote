@@ -13,7 +13,7 @@
 				   routerLinkActive="active-link"
 				   >Работники</a>
 				   <a class="nav-item"
-				   routerLink="/dashboard/workers"
+				   routerLink="/dashboard"
 				   routerLinkActive="active-link"
 				   >Вакансии</a>
 				</nav>
@@ -29,16 +29,15 @@
 					<!-- Цвет иконки выставлен в svg файле -->
 					<!-- выпадающий список -->
 					<div class="user_info-dropdown shadow">
-						<a routerLink="/user" class="dropdown-item">Изобраное</a>
-						<a routerLink="/user" class="dropdown-item">Мои резюме</a>
+						<a routerLink="/user/favorites" class="dropdown-item">Изобраное</a>
+						<a routerLink="/user/resumes" class="dropdown-item">Мои резюме</a>
+						<a routerLink="/user/create-resume" class="dropdown-item">Создать резюме</a>
 						<a routerLink="/user/notices" class="dropdown-item">Мои объявления</a>
 						<a routerLink="/user/create-notice" class="dropdown-item">Создать объявление</a>
 						<button (click)="logout()" class="logout-btn mt-1 btn btn-primary" >Выйти</button>
 					</div>
 				</div>
-				<div *ngIf="!authStatus">
-					<a class="btn btn-danger" routerLink="/auth">Войти</a>
-				</div>
+				<a class="nav-item" *ngIf="!authStatus" routerLink="/auth">Войти</a>
 			</div>
 		</div>
 	</div>

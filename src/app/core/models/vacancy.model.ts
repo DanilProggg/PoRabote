@@ -6,4 +6,5 @@ export interface IVacancy{
 	organization: string,
 	experience:string,
 	work_time: string,
+	city: string,
 }

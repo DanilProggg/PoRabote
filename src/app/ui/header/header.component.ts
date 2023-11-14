@@ -2,7 +2,6 @@ import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserService } from '../../core/services/user.service';
 import { CookieService } from 'ngx-cookie-service';
-import { Router } from '@angular/router';
 
 
 
@@ -12,10 +11,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit,AfterContentChecked{
-  constructor(private auth: UserService, private http:HttpClient,private cookieService: CookieService,private router: Router){}
+  constructor(private auth: UserService, private http:HttpClient,private cookieService: CookieService){}
 
   user: string = ""
-  authStatus: boolean
+  authStatus: boolean //Для вывода кнопки "Войти" или Email
 
 
   ngOnInit() {
@@ -33,7 +32,6 @@ export class HeaderComponent implements OnInit,AfterContentChecked{
       this.authStatus = true
     } else {
       this.authStatus = false
-      console.log("sad")
     }
   }
 

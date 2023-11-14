@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
-/*import { Router } from '@angular/router';*/
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  authenticated = false;
+  userDoesntExist: boolean = false //Ошибка о несуществующем пользователе
 
-  constructor(private http: HttpClient,private cookieService: CookieService/*,private router: Router*/) {}
+  constructor(private http: HttpClient,private cookieService: CookieService,private router: Router) {}
 
   private email = ""
   public getEmail(): string{
@@ -40,11 +40,18 @@ export class UserService {
             if(response){
               this.setEmail(email)
               this.setPassword(password)
-              this.authenticated = true
               this.cookieService.set('login', this.getEmail());
               this.cookieService.set('password', this.getPassword());
+              this.router.navigateByUrl("/dashboard")
+              this.userDoesntExist = false
             }
-        });
+          },
+          (error)=>{
+              if(error.status != 200){
+                this.userDoesntExist = true
+              }
+          }
+        );
 
   }
 }
