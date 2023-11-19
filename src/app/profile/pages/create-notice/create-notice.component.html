@@ -3,24 +3,53 @@
 	<form action="">
 		<div class="row justify-content-center">
 			<div class="col-md-8 pb-5 d-flex flex-column">
+				<form action=""
+					[formGroup] = "vacancyForm"
+					(ngSubmit) = "toCreate()">
+					
 				<div class="form-floating">
-			    	<input type="text" class="form-control shadow-sm" id="post" placeholder="" value="">
+			    	<input formControlName="post" type="text" class="form-control shadow-sm" id="post" placeholder="" value="">
 			    	<label for="post">Должность</label>
+			    	<span class="ms-1 text-danger"
+					    *ngIf="vacancyForm.get('post')?.invalid && vacancyForm.get('post')?.touched"
+					    >
+					    Должность не должна быть пустой
+					</span>
 			    </div>
 
  				<div class="form-floating">
-			    	<input type="text" class="form-control shadow-sm" id="organization" placeholder="" value="">
+			    	<input formControlName="organization" type="text" class="form-control shadow-sm" id="organization" placeholder="" value="">
 			    	<label for="organization">Организация</label>
+			    	<span class="ms-1 text-danger"
+					    *ngIf="vacancyForm.get('organization')?.invalid && vacancyForm.get('organization')?.touched"
+					    >
+					    Организация не должна быть пустой
+					</span>
 			    </div>
 
 			    <div class="form-floating">
-			    	<input type="text" class="form-control shadow-sm" id="salary" placeholder="" value="">
+			    	<input formControlName="salary" type="text" class="form-control shadow-sm" id="salary" placeholder="" value="">
 			    	<label for="salary">Зарплата от</label>
+			    	<span class="ms-1 text-danger"
+					    *ngIf="vacancyForm.get('salary')?.invalid && vacancyForm.get('salary')?.touched"
+					    >
+					    Зарплата не должна быть пустой
+					</span>
+			    </div>
+
+			    <div class="form-floating">
+			    	<input formControlName="city" type="text" class="form-control shadow-sm" id="city" placeholder="" value="">
+			    	<label for="city">Город</label>
+			    	<span class="ms-1 text-danger"
+					    *ngIf="vacancyForm.get('city')?.invalid && vacancyForm.get('city')?.touched"
+					    >
+					    Город не должен быть пустым
+					</span>
 			    </div>
 
 				<div class="form-floating">
-				  	<select class="form-select shadow-sm" id="experience" aria-label="Floating label select example">
-				    	<option value="1">Нет</option>
+				  	<select formControlName="experience" class="form-select shadow-sm" id="experience" aria-label="Floating label select example">
+				    	<option value="1" selected>Нет</option>
 						<option value="2">Более 1 год</option>
 						<option value="3">Более 3 лет</option>
 						<option value="4">Более 5 лет</option>
@@ -30,22 +59,23 @@
 				</div>
 
 				<div class="form-floating">
-				  	<select class="form-select shadow-sm" id="working_time" aria-label="Floating label select example">
-				    	<option value="1">Полный день</option>
+				  	<select formControlName="work_time" class="form-select shadow-sm" id="work_time" aria-label="Floating label select example">
+				    	<option value="1" selected>Полный день</option>
 						<option value="2">Неполный день</option>
 						<option value="3">Плавающий</option>
 						<option value="4">Вахтовый</option>
 				  </select>
-				  <label for="working_time">График работы</label>
+				  <label for="work_time">График работы</label>
 				</div>
 
 				<div class="form-block">
 					<div class="form-floating shadow-sm">
-						<textarea class="form-control" placeholder="" id="discription"></textarea>
-						<label for="discription">Описание</label>
+						<textarea formControlName="description" class="form-control" placeholder="" id="description"></textarea>
+						<label for="description">Описание</label>
 					</div>
 				</div>
-				<button class="btn btn-primary align-self-end">Опубликовать</button>
+				<button type="submit" class="btn btn-primary align-self-end">Опубликовать</button>
+				</form>
 			</div>
 		</div>
 	</form>

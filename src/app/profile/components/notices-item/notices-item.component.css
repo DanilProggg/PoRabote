@@ -1,0 +1,25 @@
+a{
+	text-decoration: none;
+	color:black;
+}
+
+.item:hover {
+	background: var(--bs-gray-200) !important;
+	transition: .1s;
+}
+
+.item{
+	border-radius: 5px;
+}
+
+.input-label{
+	
+}
+
+.input-data{
+	font-weight: 600;
+}
+
+.org{
+	color: #6d6d6d;
+}

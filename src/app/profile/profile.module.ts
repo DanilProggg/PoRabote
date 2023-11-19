@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { ProfileComponent } from './profile.component';
 import { ProfileRoutingModule } from './profile-routing.module';
@@ -10,6 +12,8 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { FavoritesItemComponent } from './components/favorites-item/favorites-item.component';
 import { ResumesItemComponent } from './components/resumes-item/resumes-item.component';
 import { NoticesItemComponent } from './components/notices-item/notices-item.component';
+import { VacanciesComponent } from '../dashboard/components/vacancies/vacancies.component';
+import { VacanciesItemComponent } from '../dashboard/components/vacancies-item/vacancies-item.component';
 
 
 
@@ -27,7 +31,10 @@ import { NoticesItemComponent } from './components/notices-item/notices-item.com
     NoticesItemComponent,
   ],
   imports: [
-    ProfileRoutingModule
+    CommonModule,
+    ProfileRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ProfileModule { }

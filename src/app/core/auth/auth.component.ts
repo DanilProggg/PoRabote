@@ -64,4 +64,5 @@ export class AuthComponent implements OnInit{
     this.auth.authenticate(this.login.value.email,this.login.value.password)
     this.userDoesntExist = this.auth.userDoesntExist
   }
+
 }

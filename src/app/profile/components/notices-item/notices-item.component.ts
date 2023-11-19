@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IVacancy } from '../../../core/models/vacancy.model';
 
 @Component({
   selector: 'app-notices-item',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./notices-item.component.css']
 })
 export class NoticesItemComponent {
-
+   @Input('notice') notice: IVacancy;
 }

@@ -1,1 +1,18 @@
-<p>notices-item works!</p>
+<a href="" 	routerLink="/dashboard/vacancy/{{notice.id}}">
+	<div class="item container-field p-3 mb-3 shadow-sm bg-white">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="m-0 fs-3 fw-semibold">{{notice.post}}</div>
+				<div class="mt-2 mb-2 fs-5 d-flex">
+					<div>Зарплата от</div>
+					<div class="ps-2 flex-fill">{{notice.salary}} ₽</div>
+				</div>
+				<div class="fw-semibold mt-3 fs-6">{{notice.organization}}</div>
+				<div class="fw-semibold mb-3 fs-6">{{notice.city}}</div>
+				<div class="m-0 fs-6">Требуемый опыт работы: {{notice.experience}}</div>
+				<div class="m-0 fs-6">График работы: {{notice.work_time}}</div>
+			</div>
+		</div>
+	</div>
+</a>
+

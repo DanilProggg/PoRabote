@@ -54,4 +54,12 @@ export class UserService {
         );
 
   }
+
+  getCredentials(){
+    const header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  'Basic ' + btoa(this.cookieService.get('login') + ':' + this.cookieService.get('password')))
+    }
+    return header;
+  }
 }

@@ -11,3 +11,13 @@
 	</div>
 	</div>
 </div>
+
+<div class="container">
+	<div class="row">
+		<app-notices-item
+			*ngFor="let notice of notices"
+			[notice]="notice"
+		></app-notices-item>
+	</div>
+</div>
+

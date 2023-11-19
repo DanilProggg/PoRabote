@@ -18,8 +18,8 @@ export class VacanciesComponent implements OnInit{
 
   //Подгрузка вакансий при загрузке компонента
   ngOnInit(): void{
-      this.vacancyService.getAll().subscribe( vacancies =>{
-        this.vacancies = vacancies
+      this.vacancyService.getPage(0).subscribe( vacancies =>{
+        this.vacancies = vacancies.content
       })
   }
   

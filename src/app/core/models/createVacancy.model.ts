@@ -1,5 +1,4 @@
-export interface IVacancy{
-	id: number,
+export interface ICreateVacancy{
 	post: string, //есть
 	work_time: string, //есть
 	experience:string, //есть
@@ -7,5 +6,4 @@ export interface IVacancy{
 	salary: number, //есть
 	organization: string, //есть
 	city: string, //есть
-	date: string,
 }

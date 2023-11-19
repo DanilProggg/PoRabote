@@ -28,8 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     
   ],
     imports: [
-        HttpClientModule,
         CommonModule,
+        HttpClientModule,
         DashboardRoutingModule
     ],
     providers: [],
