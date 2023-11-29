@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+
 
 @Component({
   selector: 'app-vacancy-page',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./vacancy-page.component.css']
 })
 export class VacancyPageComponent {
+  id:number;
 
+  constructor(private activateRoute: ActivatedRoute){ 
+    this.id = activateRoute.snapshot.params["id"];
+  }
 }

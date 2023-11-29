@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from './core/services/user.service';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'PoRabote';
-  authenticated:string = "hello"
+  title = 'PoRabote'
 
   
 

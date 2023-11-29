@@ -62,4 +62,12 @@ export class UserService {
     }
     return header;
   }
+
+  getUserInfo(): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/api/user', this.getCredentials())
+  }
+
+  updateInfo(userInfo: any){
+    return this.http.post<any>('http://localhost:8080/api/user',userInfo,this.getCredentials())
+  }
 }

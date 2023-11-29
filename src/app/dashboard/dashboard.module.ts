@@ -11,6 +11,11 @@ import { VacanciesComponent } from './components/vacancies/vacancies.component';
 import { VacanciesItemComponent } from './components/vacancies-item/vacancies-item.component';
 import { VacancyPageComponent } from './pages/vacancy-page/vacancy-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ResumesComponent } from './components/resumes/resumes.component';
+import { ResumeItemComponent } from './components/resume-item/resume-item.component';
+import { ResumeFilterComponent } from './components/resume-filter/resume-filter.component';
+import { ResumePageComponent } from './pages/resume-page/resume-page.component';
+
 
 
 
@@ -25,6 +30,11 @@ import { HttpClientModule } from '@angular/common/http';
         VacanciesComponent,
         VacanciesItemComponent,
         VacancyPageComponent,
+        ResumesComponent,
+        ResumeItemComponent,
+        ResumeFilterComponent,
+        ResumePageComponent,
+
     
   ],
     imports: [

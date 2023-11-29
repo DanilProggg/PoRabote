@@ -1,0 +1,10 @@
+.form-floating{
+	margin-bottom: 20px;
+}
+
+#additional{
+	min-height: 120px;
+}
+#experience, #personal_qualities{
+	min-height:80px;
+}

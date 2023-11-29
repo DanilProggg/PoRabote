@@ -17,6 +17,9 @@ const routes: Routes = [
     {
       path: 'auth',
       component:AuthComponent
+    },
+    { path: '**',
+      loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)//Добавить UI для notfound
     }
   ];
 

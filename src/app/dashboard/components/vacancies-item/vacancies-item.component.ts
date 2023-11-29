@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IVacancy } from '../../../core/models/vacancy.model'
+import { IVacancy } from '../../../core/models/vacancy.model';
 
 
 @Component({

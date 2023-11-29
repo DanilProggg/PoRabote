@@ -8,12 +8,15 @@ import { CreateNoticeComponent } from './pages/create-notice/create-notice.compo
 import { NoticesComponent } from './pages/notices/notices.component';
 import { ResumesComponent } from './pages/resumes/resumes.component';
 import { CreateResumeComponent } from './pages/create-resume/create-resume.component';
-import { FavoritesComponent } from './pages/favorites/favorites.component';
-import { FavoritesItemComponent } from './components/favorites-item/favorites-item.component';
 import { ResumesItemComponent } from './components/resumes-item/resumes-item.component';
 import { NoticesItemComponent } from './components/notices-item/notices-item.component';
 import { VacanciesComponent } from '../dashboard/components/vacancies/vacancies.component';
 import { VacanciesItemComponent } from '../dashboard/components/vacancies-item/vacancies-item.component';
+import { ResumeEditComponent } from './pages/resume-edit/resume-edit.component';
+import { NoticeEditComponent } from './pages/notice-edit/notice-edit.component';
+import { PersonalComponent } from './pages/personal/personal.component';
+import { FavoritesResumesComponent } from './pages/favorites-resumes/favorites-resumes.component';
+import { FavoritesVacanciesComponent } from './pages/favorites-vacancies/favorites-vacancies.component';
 
 
 
@@ -22,13 +25,17 @@ import { VacanciesItemComponent } from '../dashboard/components/vacancies-item/v
   declarations: [
     ProfileComponent,
     CreateNoticeComponent,
+    CreateResumeComponent,
     NoticesComponent,
     ResumesComponent,
-    CreateResumeComponent,
-    FavoritesComponent,
-    FavoritesItemComponent,
     ResumesItemComponent,
     NoticesItemComponent,
+    ResumeEditComponent,
+    NoticeEditComponent,
+    PersonalComponent,
+    FavoritesResumesComponent,
+    FavoritesVacanciesComponent,
+ 
   ],
   imports: [
     CommonModule,

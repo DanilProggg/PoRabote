@@ -23,8 +23,8 @@ export class CreateNoticeComponent implements OnInit{
       organization: new FormControl(null,[Validators.required]),
       salary: new FormControl(null,[Validators.required]),
       city: new FormControl(null,[Validators.required]),
-      experience: new FormControl(null,[Validators.required]),
-      work_time: new FormControl(null,[Validators.required]),
+      experience: new FormControl('Нет',[Validators.required]),
+      work_time: new FormControl('Полная занятость',[Validators.required]),
       description: new FormControl(null,[Validators.required])
     })
   }
@@ -40,6 +40,10 @@ export class CreateNoticeComponent implements OnInit{
       work_time: this.vacancyForm.value.work_time,
       description: this.vacancyForm.value.description
     }
-    this.vacancyService.createVacancy(vacancy)
+    this.vacancyService.createVacancy(vacancy).subscribe(response=>{},error=>{
+      if(error.status == 200){
+        this.router.navigateByUrl('/user/notices')
+      }
+    })
   }
 }

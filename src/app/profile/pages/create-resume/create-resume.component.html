@@ -1,97 +1,118 @@
-<div class="container-lg content my-5 p-1 justify-content-center">
+<div class="container-lg mb-5 p-1 justify-content-center">
 	
-	<div class="row mt-2 justify-content-center">
-		<div class="col-md-8 ">
-			<h3>Профиль</h3>
-		</div>
-	</div>
+	<h3 class="text-center my-3">Резюме</h3>
 	<!-- Фото и ФИО -->
-	<form>
-	<div class="row mt-3 justify-content-center">
-		<div class="col-md-2 ">
-			<div class="person-photo"></div>
-		</div>
-		<div class="col-md-6 align-self-end">
-			<div class="form-floating mb-4">
-			    <input type="text" class="form-control shadow-sm" id="name" placeholder="" value="">
-			    <label for="name">ФИО</label>
-			</div>
-			<div class="form-floating">
-			    <input type="text" class="form-control shadow-sm" id="phone_number" placeholder="" value="">
-			    <label for="phone_number">Номер телефона</label>
-			</div>
-		</div>
-	</div>
+	<form
+		*ngIf="resumeForm"
+		[formGroup] = "resumeForm"
+		(ngSubmit) = "toCreate()"
+	>
 	<!--- -->
 	<!-- Инфо -->
-	<div class="row mt-5 mb-5 justify-content-center">
+	<div class="row mb-5 justify-content-center">
 		<div class="col-md-8 person-data">
 			<!-- Персональные данные -->
+			<div class="form-floating">
+			    <input formControlName="fullname" type="text" class="form-control shadow-sm" id="name" placeholder="" value="">
+			    <label for="name">ФИО</label>
+			    <span class="ms-1 text-danger"
+					*ngIf="resumeForm.get('fullname')?.invalid && resumeForm.get('fullname')?.touched"
+					>
+					ФИО не должно быть пустым
+				</span>
+			</div>
+			<div class="form-floating">
+			    <input formControlName="phone" type="text" class="form-control shadow-sm" id="phone_number" placeholder="" value="">
+			    <label for="phone_number">Номер телефона</label>
+			    <span class="ms-1 text-danger"
+					*ngIf="resumeForm.get('phone')?.invalid && resumeForm.get('phone')?.touched"
+					>
+					Номер телефона не должен быть пустым
+				</span>
+			</div>
+			<div class="form-floating">
+			    <input formControlName="post" type="text" class="form-control shadow-sm" id="specialty" placeholder="" value="">
+			    <label for="specialty">Должность</label>
+			    <span class="ms-1 text-danger"
+					*ngIf="resumeForm.get('post')?.invalid && resumeForm.get('post')?.touched"
+					>
+					Должность не должна быть пустой
+				</span>
+			</div>
 			<h6>Пол</h6>
 			<div class="form-check sex-check mb-2">
 				<div class="sex-check-item">
-					<input class="form-check-input align-self-center" id="male" type="radio" name="sex" value="male">
+					<input formControlName="sex" class="form-check-input align-self-center" id="male" type="radio" name="sex" value="Мужской">
 					<label class="sex-check-label align-self-center" for="male">
 						Мужской
 					</label>
 				</div>
 				<div class="sex-check-item">
-					<input class="form-check-input align-self-center" id="female" type="radio" name="sex" value="female">
+					<input formControlName="sex" class="form-check-input align-self-center" id="female" type="radio" name="sex" value="Женский">
 					<label class="sex-check-label align-self-center" for="female">
 						Женский
 					</label>
 				</div>
 			</div>
 			
-			<div class="form-floating mb-4">
-			    <input type="text" class="form-control shadow-sm" id="age" placeholder="" value="">
-			    <label for="age">Возраст</label>
+			<div class="form-floating">
+			    <input formControlName="age" type="date" class="form-control shadow-sm" id="age" placeholder="" value="">
+			    <label for="age">Дата рождения</label>
+			    <span class="ms-1 text-danger"
+					*ngIf="resumeForm.get('age')?.invalid && resumeForm.get('age')?.touched"
+					>
+					Дата рождения не должна быть пустой
+				</span>
 			</div>
 
-			<div class="form-floating mb-4">
-			    <input type="text" class="form-control shadow-sm" id="city" placeholder="" value="">
+			<div class="form-floating">
+			    <input formControlName="city" type="text" class="form-control shadow-sm" id="city" placeholder="" value="">
 			    <label for="city">Город</label>
+			    <span class="ms-1 text-danger"
+					*ngIf="resumeForm.get('city')?.invalid && resumeForm.get('city')?.touched"
+					>
+					Город не должен быть пустым
+				</span>
 			</div>
 
-			<div class="form-floating mb-4">
-			    <input type="text" class="form-control shadow-sm" id="education" placeholder="" value="">
-			    <label for="education">Образование</label>
+
+			<div class="form-floating">
+				<textarea formControlName="experience" class="form-control" placeholder="" id="experience"></textarea>
+				<label for="experience">Опыт работы</label>
+				<span class="ms-1 text-danger"
+				*ngIf="resumeForm.get('experience')?.invalid && resumeForm.get('experience')?.touched"
+				>
+				Опыт работы не должен быть пустым
+				</span>
+			</div>
+
+		
+			<div class="form-floating shadow-sm">
+				<textarea formControlName="personal_qualities" class="form-control" placeholder="" id="personal_qualities"></textarea>
+				<label for="personal_qualities">Личные качества</label>
+				<span class="ms-1 text-danger"
+				*ngIf="resumeForm.get('personal_qualities')?.invalid && resumeForm.get('personal_qualities')?.touched"
+				>
+				Личные качества не должны быть пустыми
+				</span>
 			</div>
 			
-			<div class="form-floating mb-4">
-			    <input type="text" class="form-control shadow-sm" id="specialty" placeholder="" value="">
-			    <label for="specialty">Специальность</label>
+
+			<div class="form-block">
+				<div class="form-floating shadow-sm">
+					<textarea formControlName="additional" class="form-control" placeholder="" id="additional"></textarea>
+					<label for="additional">Дополнительная информация</label>
+					<span class="ms-1 text-danger"
+					*ngIf="resumeForm.get('description')?.invalid && resumeForm.get('description')?.touched"
+					>
+					Дополнительная информация не должна быть пустой
+				</span>
+				</div>
 			</div>
 
-
-			<div class="form-floating mb-4">
-				<select class="form-select" id="experience" aria-label="Floating label select example">
-			    	<option value="1">Нет</option>
-					<option value="2">Более 1 год</option>
-					<option value="3">Более 3 лет</option>
-					<option value="4">Более 5 лет</option>
-				<option value="5">Более 10 лет</option>
-			  	</select>
-			  	<label for="experience">Опыт работы</label>
-			</div>
-
-			<div class="form-floating mb-4">
-				<select class="form-select" id="working_time" aria-label="Floating label select example">
-			    	<option value="1">Полный день</option>
-					<option value="2">Неполный день</option>
-					<option value="3">Плавающий</option>
-					<option value="4">Вахтовый</option>
-			  	</select>
-			  	<label for="working_time">Желаемый график работы</label>
-			</div>
-
-
-			<div class="form-floating mb-4">
-			    <input type="text" class="form-control shadow-sm" id="salary" placeholder="" value="">
-			    <label for="salary">Желаемая зарплата</label>
-			</div>
-
-			<button class="mt-4 btn btn-primary align-self-end" type="submit">Сахранить</button>
+			<button type="submit"
+			[disabled]="!resumeForm.valid"
+			class="mt-4 btn btn-primary align-self-end">Опубликовать</button>
 			
 		</div>
 	</div>

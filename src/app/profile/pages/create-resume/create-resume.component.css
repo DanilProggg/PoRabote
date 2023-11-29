@@ -5,13 +5,6 @@
 }
 
 
-.content{
-
-	padding:10px;
-	border-radius:10px;
-	background: var(--bs-white);
-	border: 1px solid var(--bs-gray-200);
-}
 
 .person-photo{
 	padding:10px;
@@ -54,7 +47,14 @@
 
 
 
-.btn{
-	background: var(--components-bg);
-	border-color: var(--components-bg);
+
+#additional{
+	min-height: 120px;
+}
+#experience, #personal_qualities{
+	min-height:80px;
+}
+
+.form-floating{
+	margin-bottom: 20px;
 }

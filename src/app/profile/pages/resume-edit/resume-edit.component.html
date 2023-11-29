@@ -1,0 +1,120 @@
+<div class="container-lg content my-5 p-1 justify-content-center">
+	
+	<h3 class="text-center">Резюме</h3>
+	<!-- Фото и ФИО -->
+	<form
+		*ngIf="resumeEditForm"
+		[formGroup] = "resumeEditForm"
+		(ngSubmit) = "toUpdate()"
+	>
+	<!--- -->
+	<!-- Инфо -->
+	<div class="row mt-5 mb-5 justify-content-center">
+		<div class="col-md-8 person-data">
+			<!-- Персональные данные -->
+			<div class="form-floating">
+			    <input formControlName="fullname" type="text" class="form-control shadow-sm" id="name" placeholder="" value="">
+			    <label for="name">ФИО</label>
+			    <span class="ms-1 text-danger"
+					*ngIf="resumeEditForm.get('fullname')?.invalid && resumeEditForm.get('fullname')?.touched"
+					>
+					ФИО не должно быть пустым
+				</span>
+			</div>
+			<div class="form-floating">
+			    <input formControlName="phone" type="text" class="form-control shadow-sm" id="phone_number" placeholder="" value="">
+			    <label for="phone_number">Номер телефона</label>
+			    <span class="ms-1 text-danger"
+					*ngIf="resumeEditForm.get('phone')?.invalid && resumeEditForm.get('phone')?.touched"
+					>
+					Номер телефона не должен быть пустым
+				</span>
+			</div>
+			<div class="form-floating">
+			    <input formControlName="post" type="text" class="form-control shadow-sm" id="specialty" placeholder="" value="">
+			    <label for="specialty">Должность</label>
+			    <span class="ms-1 text-danger"
+					*ngIf="resumeEditForm.get('post')?.invalid && resumeEditForm.get('post')?.touched"
+					>
+					Должность не должна быть пустой
+				</span>
+			</div>
+			<h6>Пол</h6>
+			<div class="form-check sex-check mb-2">
+				<div class="sex-check-item">
+					<input formControlName="sex" class="form-check-input align-self-center" id="male" type="radio" name="sex" value="Мужской">
+					<label class="sex-check-label align-self-center" for="male">
+						Мужской
+					</label>
+				</div>
+				<div class="sex-check-item">
+					<input formControlName="sex" class="form-check-input align-self-center" id="female" type="radio" name="sex" value="Женский">
+					<label class="sex-check-label align-self-center" for="female">
+						Женский
+					</label>
+				</div>
+			</div>
+			
+			<div class="form-floating">
+			    <input formControlName="age" type="date" class="form-control shadow-sm" id="age" placeholder="" value="">
+			    <label for="age">Дата рождения</label>
+			    <span class="ms-1 text-danger"
+					*ngIf="resumeEditForm.get('age')?.invalid && resumeEditForm.get('age')?.touched"
+					>
+					Дата рождения не должна быть пустой
+				</span>
+			</div>
+
+			<div class="form-floating">
+			    <input formControlName="city" type="text" class="form-control shadow-sm" id="city" placeholder="" value="">
+			    <label for="city">Город</label>
+			    <span class="ms-1 text-danger"
+					*ngIf="resumeEditForm.get('city')?.invalid && resumeEditForm.get('city')?.touched"
+					>
+					Город не должен быть пустым
+				</span>
+			</div>
+
+
+			<div class="form-floating">
+				<textarea formControlName="experience" class="form-control" placeholder="" id="experience"></textarea>
+				<label for="experience">Опыт работы</label>
+				<span class="ms-1 text-danger"
+				*ngIf="resumeEditForm.get('experience')?.invalid && resumeEditForm.get('experience')?.touched"
+				>
+				Опыт работы не должен быть пустым
+				</span>
+			</div>
+
+		
+			<div class="form-floating shadow-sm">
+				<textarea formControlName="personal_qualities" class="form-control" placeholder="" id="personal_qualities"></textarea>
+				<label for="personal_qualities">Личные качества</label>
+				<span class="ms-1 text-danger"
+				*ngIf="resumeEditForm.get('personal_qualities')?.invalid && resumeEditForm.get('personal_qualities')?.touched"
+				>
+				Личные качества не должны быть пустыми
+				</span>
+			</div>
+
+			<div class="form-block">
+				<div class="form-floating shadow-sm">
+					<textarea formControlName="additional" class="form-control" placeholder="" id="additional"></textarea>
+					<label for="additional">Дополнительная информация</label>
+					<span class="ms-1 text-danger"
+					*ngIf="resumeEditForm.get('description')?.invalid && resumeEditForm.get('description')?.touched"
+					>
+					Дополнительная информация не должна быть пустой
+				</span>
+				</div>
+			</div>
+
+			<div class="d-flex justify-content-between">
+				<button (click)="delete()" class="btn btn-danger">Удалить</button>
+				<button [disabled]="!resumeEditForm.valid" type="submit" class="btn btn-primary align-self-end">Сахранить</button>		
+			</div>
+			
+		</div>
+	</div>
+	</form>
+</div>

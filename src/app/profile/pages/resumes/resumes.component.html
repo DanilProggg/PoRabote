@@ -1,13 +1,33 @@
 <div class="search-bar container-field mb-4 pb-1 shadow-sm">
 	<div class="container">
 		<div class="row mb-1 justify-content-center">
-		<div class="flex-column mt-2 col-md-12">
-			<button routerLink="/user/create-resume" class="btn btn-primary text-uppercase d-flex">Создать резюме
-				<span class="ms-2 p-1 badge bg-light">
-					<img class="align-self-center"style="color:white" src="../../../assets/images/plus-lg.svg" alt="">
-				</span>
-			</button>
+			<div class="flex-column mt-2 col-md-12">
+				<button routerLink="/user/create-resume" class="btn btn-primary text-uppercase d-flex">Создать резюме
+					<span class="ms-2 p-1 badge bg-light">
+						<img class="align-self-center"style="color:white" src="../../../assets/images/plus-lg.svg" alt="">
+					</span>
+				</button>
+			</div>
 		</div>
 	</div>
+</div>
+<div class="container mb-4">
+	<h3 class="text-center my-3">Мои резюме</h3>
+	<div class="row">
+		<app-resumes-item
+			*ngFor="let resume of resumes"
+			[resume]="resume"
+		></app-resumes-item>
+	</div>
+	<div class="row mt-3">
+		<div class="col-5">
+			<button [disabled]="!backActive" (click)="back()" class="float-right btn btn-primary d-flex justify-content-end align-self-end">Предыдущая страница</button>
+		</div>
+		<div class="col-2 d-flex justify-content-center">
+			<input type="text" [value]="this.current_page">
+		</div>
+		<div class="col-5">
+			<button [disabled]="!nextActive" (click)="next()" class="btn btn-primary d-flex justify-content-start">Следущая старница</button>
+		</div>
 	</div>
 </div>

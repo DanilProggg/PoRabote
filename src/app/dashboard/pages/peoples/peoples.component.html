@@ -1,1 +1,28 @@
-<p>peoples works!</p>
+<!-- Структура главного экрна поиска вакансий -->
+<div class="search-bar container-field mb-4 pb-1 shadow-sm">
+	<div class="container">
+		<div class="row mb-1 justify-content-center">
+		<div class="flex-column mt-2 col-md-12">
+			<div class="bar d-flex">
+				<input class="form-control" type="text" placeholder="Искать...">
+				<button class="ms-2 btn btn-primary">Поиск</button>
+			</div>
+			<div class="mt-1 filter-items d-flex flex-wrap">
+				<button type="button" class="filter-item mt-1 me-1 py-1 px-2 btn btn-primary d-flex">
+				  Тип занятости: Полный<img class="align-self-center ps-2" src="../../../../assets/images/x-lg.svg">
+				</button>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+<div class="container mb-5">
+	<div class="mt-2 row">
+		<div class="col-md-4 col-lg-3 col-xxl-2">
+			<app-resume-filter></app-resume-filter>
+		</div>
+		<div class="col-md-8 col-lg-9 col-xxl-10">
+			<app-resumes></app-resumes>
+		</div>
+	</div>
+</div>

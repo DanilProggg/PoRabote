@@ -32,7 +32,10 @@ export class AuthComponent implements OnInit{
 
     this.reg = new FormGroup({
       email: new FormControl(null,[Validators.required, Validators.email]),
-      password: new FormControl(null,[Validators.required, Validators.minLength(8)])
+      fullname: new FormControl(null,[Validators.required]),
+      phone: new FormControl('+7',[Validators.required,Validators.pattern('[+ 0-9 ]{10,12}')]),
+      password: new FormControl(null,[Validators.required, Validators.minLength(8)]),
+      date: new FormControl(null,[Validators.required])
     })
   }
 
@@ -47,10 +50,16 @@ export class AuthComponent implements OnInit{
   }
   //При нажатии регистрация
   onSubmitReg(){
+    let cur_date = new Date(this.reg.value.date,);
+    let mil_cur_date = cur_date.getTime();
     const user = {
       email: this.reg.value.email,
+      fullname: this.reg.value.fullname,
+      phone: this.reg.value.phone,
       password: this.reg.value.password,
+      date: mil_cur_date,
     }
+    console.log(mil_cur_date)
     this.http.post('http://localhost:8080/auth/reg',user).subscribe(response=>{},error=>{
       if(error.status == 200){
         this.login_page = true

@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 
 import { IVacancy } from '../models/vacancy.model';
 import { ICreateVacancy } from '../models/createVacancy.model';
-import { IPageVacancy } from '../models/vacancyPage.model';
 
 
 
@@ -24,23 +23,34 @@ export class VacancyService {
   }
 
 
-  getPage(page: number) : Observable<IPageVacancy>{
-    return this.http.get<IPageVacancy>('http://localhost:8080/api/vacancies/all/' + page)
+  getPage(page: number) : Observable<any>{
+    return this.http.get<any>('http://localhost:8080/api/vacancies/all/' + page)
   }
 
-  getMy() : Observable<IVacancy[]>{
-    return this.http.get<IVacancy[]>('http://localhost:8080/api/vacancies/my',this.auth.getCredentials())
+  getMy(page: number) : Observable<any>{
+    return this.http.get<any>('http://localhost:8080/api/vacancies/my/'+page,this.auth.getCredentials())
+  }
+  getFavorites(page: number) : Observable<any>{
+    return this.http.get<any>('http://localhost:8080/api/vacancies/favorites/'+page,this.auth.getCredentials())
+  }
+
+
+  getById(id: number): Observable<IVacancy>{
+    return this.http.get<IVacancy>('http://localhost:8080/api/vacancies/byId/'+id)
+  }
+
+  deleteById(id: number){
+    console.log("Delete "+id)
+    return this.http.delete('http://localhost:8080/api/vacancies/my/delete/'+id,this.auth.getCredentials())
   }
 
   createVacancy(vacancy: ICreateVacancy){
-    return this.http.post<ICreateVacancy>('http://localhost:8080/api/vacancies/all',vacancy,this.auth.getCredentials()).subscribe(response=>{},error=>{
-      if(error.status == 200){
-        this.router.navigateByUrl('/notices')
-      }
-    })
+    return this.http.post<ICreateVacancy>('http://localhost:8080/api/vacancies/all',vacancy,this.auth.getCredentials())
   }
 
-
+  updateById(id: number,vacancy: ICreateVacancy){
+    return this.http.put<ICreateVacancy>('http://localhost:8080/api/vacancies/my/update/'+id, vacancy, this.auth.getCredentials())
+  }
 
 }
 

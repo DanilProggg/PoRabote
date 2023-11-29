@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 import { JobsComponent } from './pages/jobs/jobs.component';
 import { PeoplesComponent } from './pages/peoples/peoples.component';
 import { VacancyPageComponent } from './pages/vacancy-page/vacancy-page.component';
+import { ResumePageComponent } from './pages/resume-page/resume-page.component'
 
 
 
@@ -23,8 +24,12 @@ const dashboardRoutes: Routes = [
                 component:VacancyPageComponent
             },
             { 
-                path: 'workers',
+                path: 'resumes',
                 component:PeoplesComponent
+            },
+            { 
+                path: 'resumes/:id',
+                component:ResumePageComponent
             },
 
         ]

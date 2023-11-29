@@ -40,7 +40,42 @@
 				<div class="form-bg shadow-sm">
 					<label class="action">Регистрация</label>
 					<div class="mb-3">
-					    <label for="email" class="form-label">Email</label>
+						<label for="fullname" class="form-label">ФИО</label>
+					    <input formControlName="fullname" type="text" class="form-control" id="fullname" aria-describedby="fullname">
+					    <!-- Errors -->
+					    <span class="ms-1 text-danger"
+					    *ngIf="reg?.get('fullname')?.invalid && reg?.get('fullname')?.touched"
+					    >
+					    	<span *ngIf="reg?.get('fullname')?.errors?.['required']">ФИО не должно быть пустым</span>
+					    </span>
+					</div>
+
+					<div class="mb-3">
+						<label for="phone" class="form-label">Номер телефона</label>
+					    <input formControlName="phone" type="text" class="form-control" id="phone" aria-describedby="phone">
+					    <!-- Errors -->
+					    <span class="ms-1 text-danger"
+					    *ngIf="reg?.get('phone')?.invalid && reg?.get('phone')?.touched"
+					    >
+					    	<span *ngIf="reg?.get('phone')?.errors?.['required']">Номер не должен быть пустым</span>
+					    	<span *ngIf="reg?.get('phone')?.errors?.['pattern']">Номер телефона введен некоректно</span>
+					    </span>
+					</div>
+
+					<div class="mb-3">
+						<label for="date" class="form-label">Дата рождения</label>
+					    <input formControlName="date" type="date" class="form-control" id="date" aria-describedby="date">
+					    <!-- Errors -->
+					    <span class="ms-1 text-danger"
+					    *ngIf="reg?.get('date')?.invalid && reg?.get('date')?.touched"
+					    >
+					    	<span *ngIf="reg?.get('date')?.errors?.['required']">Дата не должна быть пустой</span>
+					    </span>
+					</div>
+
+					<div class="mb-3">
+
+						<label for="email" class="form-label">Email</label>
 					    <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="email">
 					    <!-- Errors -->
 					    <span class="ms-1 text-danger"

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
 
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,7 @@ import { CookieService } from 'ngx-cookie-service';
   declarations: [
     AppComponent,
     HeaderComponent,
-    AuthComponent
+    AuthComponent,
   ],
   imports: [
     CommonModule,

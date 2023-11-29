@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<h3 class="text-center mt-5 mb-3">Персональные данные</h3>
+			<form action="" class="d-flex flex-column"
+					*ngIf="profileForm"
+					[formGroup] = "profileForm"
+					(ngSubmit) = "toUpdate()"
+					>
+				<div class="form-floating">
+				    <input formControlName="fullname" type="text" class="form-control shadow-sm" id="fullname" placeholder="" value="">
+				    <label for="fullname">ФИО</label>
+				    <span class="ms-1 text-danger"
+						*ngIf="profileForm.get('fullname')?.invalid && profileForm.get('fullname')?.touched"
+						>
+						ФИО не должно быть пустым
+					</span>
+				</div>
+				<div class="form-floating">
+				    <input formControlName="phone" type="text" class="form-control shadow-sm" id="phone" placeholder="" value="">
+				    <label for="phone">Номер телефона</label>
+				    <span class="ms-1 text-danger"
+						*ngIf="profileForm.get('phone')?.invalid && profileForm.get('phone')?.touched"
+						>
+						Номер телефона не должен быть пустым
+					</span>
+				</div>
+
+				<div class="form-floating">
+				    <input formControlName="date" type="date" class="form-control shadow-sm" id="date" placeholder="" value="">
+				    <label for="date">Дата рождения</label>
+				    <span class="ms-1 text-danger"
+						*ngIf="profileForm.get('date')?.invalid && profileForm.get('date')?.touched"
+						>
+						Дата рождения не должна быть пустой
+					</span>
+				</div>
+				<button type="submit" class="btn btn-primary align-self-end">Сахранить</button>
+			</form>
+		</div>
+	</div>
+</div>

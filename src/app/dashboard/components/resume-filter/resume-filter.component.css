@@ -1,0 +1,13 @@
+.container-field{
+	border-radius:5px;
+
+}
+
+.form-control{
+	height:32px;
+	font-size:0.8rem;
+}
+
+.row{
+	font-size:14px;
+}
