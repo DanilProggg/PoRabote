@@ -3,9 +3,9 @@ export interface ICreateResume{
 	fullname: string,
 	phone: string,
 	sex: string,
-	age:number,
-	experience: string,
-	additional:string,
-	personal_qualities: string,
+	age:any,
 	city: string,
+	experience: string,
+	personal_qualities: string,
+	additional:string,
 }

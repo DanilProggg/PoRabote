@@ -16,6 +16,10 @@ body{
 	font-family: 'Rubik', sans-serif;
 	background: var(--bg);
 }
+pre{
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
 /*  Минимальный размер блока с контентом */
 .main-block{
     min-height:calc(100vh - 60px);
@@ -44,4 +48,9 @@ body{
 
 .float-right{
     float: right !important;
+}
+
+
+.h-100vh{
+    height:100vh !important;
 }

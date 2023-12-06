@@ -17,12 +17,6 @@ export class VacancyService {
   constructor(private http: HttpClient, private auth: UserService, private router: Router) {
   }
 
-
-  getAll(): Observable<IVacancy[]>{
-    return this.http.get<IVacancy[]>('http://localhost:8080/api/vacancies') //Есть пагинация. Добавить параметр страница
-  }
-
-
   getPage(page: number) : Observable<any>{
     return this.http.get<any>('http://localhost:8080/api/vacancies/all/' + page)
   }
@@ -30,6 +24,7 @@ export class VacancyService {
   getMy(page: number) : Observable<any>{
     return this.http.get<any>('http://localhost:8080/api/vacancies/my/'+page,this.auth.getCredentials())
   }
+  
   getFavorites(page: number) : Observable<any>{
     return this.http.get<any>('http://localhost:8080/api/vacancies/favorites/'+page,this.auth.getCredentials())
   }

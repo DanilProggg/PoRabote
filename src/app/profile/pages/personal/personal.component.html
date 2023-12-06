@@ -9,11 +9,11 @@
 					>
 				<div class="form-floating">
 				    <input formControlName="fullname" type="text" class="form-control shadow-sm" id="fullname" placeholder="" value="">
-				    <label for="fullname">ФИО</label>
+				    <label for="fullname">ФИО/Организация</label>
 				    <span class="ms-1 text-danger"
 						*ngIf="profileForm.get('fullname')?.invalid && profileForm.get('fullname')?.touched"
 						>
-						ФИО не должно быть пустым
+						ФИО/Организация не должно быть пустым
 					</span>
 				</div>
 				<div class="form-floating">

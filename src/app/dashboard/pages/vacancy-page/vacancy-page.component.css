@@ -1,0 +1,18 @@
+.owner,.info{
+	border-radius: 5px;
+}
+
+.response{
+	background: var(--components-bg);
+	color: white;
+	padding: 10px 40px;
+}
+
+.response:hover{
+	background: var(--hover-component-bg);
+	color:white;
+}
+
+.post{
+	font-weight: 500;
+}

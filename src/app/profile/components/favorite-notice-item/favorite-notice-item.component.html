@@ -1,0 +1,18 @@
+<div class="item container-field p-3 mb-3 shadow-sm bg-white">
+	<div class="row">
+		<div class="col-md-12">
+			<a href="" 	routerLink="/dashboard/vacancy/{{notice.id}}">
+				<span class="post m-0 fs-3 fw-semibold">{{notice.post}}</span>
+			</a>
+			<div class="mt-2 mb-2 fs-5 d-flex">
+				<div>Зарплата от</div>
+				<div class="ps-2 flex-fill">{{notice.salary}} ₽</div>
+			</div>
+			<div class="fw-semibold mt-3 fs-6">{{notice.organization}}</div>
+			<div class="fw-semibold mb-3 fs-6">{{notice.city}}</div>
+			<div class="m-0 fs-6">Требуемый опыт работы: {{notice.experience}}</div>
+			<div class="m-0 fs-6">Тип занятости: {{notice.work_time}}</div>
+			<div class="m-0 date">Опубликовано {{notice.date | date: 'dd.MM.yyyy'}}</div>
+		</div>
+	</div>
+</div>

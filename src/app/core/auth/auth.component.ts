@@ -50,16 +50,16 @@ export class AuthComponent implements OnInit{
   }
   //При нажатии регистрация
   onSubmitReg(){
-    let cur_date = new Date(this.reg.value.date,);
-    let mil_cur_date = cur_date.getTime();
+    let date = new Date(this.reg.value.date,);
+    let mil_date = date.getTime();
     const user = {
       email: this.reg.value.email,
       fullname: this.reg.value.fullname,
       phone: this.reg.value.phone,
       password: this.reg.value.password,
-      date: mil_cur_date,
+      date: mil_date,
     }
-    console.log(mil_cur_date)
+    console.log(mil_date);
     this.http.post('http://localhost:8080/auth/reg',user).subscribe(response=>{},error=>{
       if(error.status == 200){
         this.login_page = true
