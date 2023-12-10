@@ -8,13 +8,13 @@
 	</div>
 	<div class="row mt-3">
 		<div class="col-5">
-			<button [disabled]="!backActive" (click)="back()" class="float-right btn btn-primary d-flex justify-content-end align-self-end">Предыдущая страница</button>
+			<button [disabled]="!backActive" (click)="back()" class="float-right btn btn-primary d-flex justify-content-end align-self-end">Назад</button>
 		</div>
 		<div class="col-2 d-flex justify-content-center">
 			<input type="text" [value]="this.current_page">
 		</div>
 		<div class="col-5">
-			<button [disabled]="!nextActive" (click)="next()" class="btn btn-primary d-flex justify-content-start">Следущая старница</button>
+			<button [disabled]="!nextActive" (click)="next()" class="btn btn-primary d-flex justify-content-start">Далее</button>
 		</div>
 	</div>
 </div>

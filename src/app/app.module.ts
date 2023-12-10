@@ -17,7 +17,6 @@ import { HeaderComponent } from './ui/header/header.component';
 import { AuthComponent } from './core/auth/auth.component';
 import { CookieService } from 'ngx-cookie-service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,10 +32,11 @@ import { CookieService } from 'ngx-cookie-service';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [
-    CookieService
+    CookieService,
     ],
   bootstrap: [AppComponent]
 })

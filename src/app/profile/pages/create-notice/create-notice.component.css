@@ -3,7 +3,7 @@
 }
 
 
-.form-floating{
+.form-floating,.form-file{
 	margin-bottom: 20px;
 }
 
@@ -11,4 +11,8 @@
 	margin-bottom: 8px;
 	font-size:20px;
 	font-weight:500;
+}
+
+.logo{
+	width: 200px;
 }

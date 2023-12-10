@@ -12,7 +12,10 @@
 		<div class="col-md-4 ">
 			<div class="owner shadow p-3">
 				<div class="fs-4 mb-2">{{vacancy.owner.fullname}}</div>
-				<div class="fs-5">{{vacancy.organization}}</div>
+				<div class="d-flex">
+					<img class="logo" [src]="this.vacancy.organizationImage64">
+					<div class="fs-5 d-flex align-self-end ms-3">{{vacancy.organization}}</div>
+				</div>
 				<button class="mt-4 btn response">Откликнуться</button>
 			</div>
 		</div>

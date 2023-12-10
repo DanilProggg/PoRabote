@@ -1,3 +1,8 @@
-.form-floating{
+
+.form-floating,.form-file{
 	margin-bottom: 20px;
+}
+
+.logo{
+	width: 200px;
 }

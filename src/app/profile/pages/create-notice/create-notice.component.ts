@@ -11,6 +11,7 @@ import { VacancyService } from '../../../core/services/vacancy.service';
 })
 export class CreateNoticeComponent implements OnInit{
   vacancyForm: FormGroup
+  image64: string | ArrayBuffer | null
 
 
   constructor(private http: HttpClient,private router: Router, private vacancyService:VacancyService){}
@@ -32,6 +33,7 @@ export class CreateNoticeComponent implements OnInit{
 
   toCreate(){
     const vacancy = {
+      organizationImage64: this.image64,
       post: this.vacancyForm.value.post,
       organization: this.vacancyForm.value.organization,
       salary: this.vacancyForm.value.salary,
@@ -40,10 +42,24 @@ export class CreateNoticeComponent implements OnInit{
       work_time: this.vacancyForm.value.work_time,
       description: this.vacancyForm.value.description
     }
+    console.log(vacancy);
     this.vacancyService.createVacancy(vacancy).subscribe(response=>{},error=>{
       if(error.status == 200){
         this.router.navigateByUrl('/user/notices')
       }
     })
+  }
+
+  onFileSelect(event:any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log(file);
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.image64 = reader.result;
+        console.log(this.image64);
+      };
+    }
   }
 }

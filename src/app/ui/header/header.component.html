@@ -1,11 +1,11 @@
 <header class="container-fluid shadow-sm">
-	<div class="container">
-		<div class="header-bar row ">
+	<div class="container header-bar d-flex">
+
 			<!-- Лого -->
-			<a class="col-xl-3 col-lg-3 col-md-3 title justify-content-start"
+			<a class="me-5 title justify-content-start"
 				routerLink="/dashboard"
             	>ПоРаботе</a>
-			<div class="col-xl-6 col-lg-5 col-md-4 header-menu">
+			<div class="header-menu">
 				<!-- Навигационные ссылки -->
 				<nav class="">
 				<a class="nav-item"
@@ -20,7 +20,7 @@
 				<div class=""></div>
 			</div>
 			<!-- Аккаунт -->
-			<div class="col-xl-3 col-lg-4 col-md-5 user_info justify-content-end">
+			<div class="user_info ms-auto">
 				<div  *ngIf="authStatus">
 					<div class="d-flex ghost">
 						<div class="user_name">{{user}}</div>
@@ -40,6 +40,5 @@
 				</div>
 				<a class="nav-item" *ngIf="!authStatus" routerLink="/auth">Войти</a>
 			</div>
-		</div>
 	</div>
 </header>

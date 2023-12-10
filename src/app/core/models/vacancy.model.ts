@@ -6,6 +6,7 @@ export interface IVacancy{
 	work_time: string, //есть
 	experience:string, //есть
 	organization: string, //есть
+	organizationImage64: string | ArrayBuffer | null,
 	salary: number, //есть
 	city: string, //есть
 	responded: number[],

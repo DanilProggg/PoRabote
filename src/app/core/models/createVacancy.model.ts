@@ -5,5 +5,6 @@ export interface ICreateVacancy{
 	description:string, //есть
 	salary: number, //есть
 	organization: string, //есть
+	organizationImage64: string | ArrayBuffer | null,
 	city: string, //есть
 }

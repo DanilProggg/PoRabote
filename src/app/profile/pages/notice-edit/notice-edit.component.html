@@ -28,6 +28,14 @@
 					</span>
 			    </div>
 
+			    <div class="form-file">
+			    	<div class="form-control d-flex flex-column">
+			    		<img class="logo" [src]="this.image64"/>
+			    		<div class="d-flex"><label>Логотип организации</label><label class="text-secondary">(необязательно)</label></div>
+			    		<input type="file" accept="image/*,.png,.jpg,.jpeg" class="my-2" (change)="onFileSelect($event)">
+			    	</div>
+			    </div>
+
 			    <div class="form-floating">
 			    	<input formControlName="salary" type="text" class="form-control shadow-sm" id="salary" placeholder="" value="">
 			    	<label for="salary">Зарплата от</label>
@@ -75,7 +83,7 @@
 				</div>
 				<div class="d-flex justify-content-between">
 					<button (click)="delete()" class="btn btn-danger">Удалить</button>
-					<button [disabled]="!vacancyEditForm.valid" type="submit" class="btn btn-primary align-self-end">Сахранить</button>					
+					<button [disabled]="!vacancyEditForm.valid" type="submit" class="btn btn-primary align-self-end">Сохранить</button>					
 				</div>
 				</form>
 			</div>
