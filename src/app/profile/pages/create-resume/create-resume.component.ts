@@ -15,6 +15,7 @@ import { UserService } from '../../../core/services/user.service';
 })
 export class CreateResumeComponent implements OnInit{
   resumeForm: FormGroup
+  image64: string | ArrayBuffer | null
 
 
   constructor(private http: HttpClient,private router: Router, private resumeService:ResumeService, private auth: UserService, private date: DatePipe){}
@@ -55,11 +56,25 @@ export class CreateResumeComponent implements OnInit{
       experience: this.resumeForm.value.experience,
       personal_qualities: this.resumeForm.value.personal_qualities,
       additional: this.resumeForm.value.additional,
+      phoneImage64: this.image64,
     }
     this.resumeService.createResume(resume).subscribe(response=>{},error=>{
       if(error.status == 200){
         this.router.navigateByUrl('/user/resumes')
       }
     })
+  }
+
+  onFileSelect(event:any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log(file);
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.image64 = reader.result;
+        console.log(this.image64);
+      };
+    }
   }
 }

@@ -31,7 +31,7 @@ export class ResumeService {
     return this.http.get<any>('http://localhost:8080/api/resumes/favorites/'+page,this.auth.getCredentials())
   }
 
-  createResume(resume: ICreateResume){
+  createResume(resume: ICreateResume): Observable<any>{
     return this.http.post<ICreateResume>('http://localhost:8080/api/resumes/all',resume,this.auth.getCredentials())
   }
 

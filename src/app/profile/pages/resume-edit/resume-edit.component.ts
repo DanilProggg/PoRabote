@@ -15,6 +15,7 @@ import { ResumeService } from '../../../core/services/resume.service';
 export class ResumeEditComponent {
   resumeEditForm: FormGroup;
   id:number;
+  image64: string | ArrayBuffer | null
 
   constructor(private router: Router, private activateRoute: ActivatedRoute, private resumeService: ResumeService){ 
     this.id = activateRoute.snapshot.params["id"];
@@ -22,6 +23,7 @@ export class ResumeEditComponent {
 
   ngOnInit(): void{
     this.resumeService.getById(this.id).subscribe(response=>{
+      this.image64 = response.photoImage64;
       this.resumeEditForm = new FormGroup({
         post: new FormControl(response.post,[Validators.required]),
         fullname: new FormControl(response.fullname,[Validators.required]),
@@ -63,5 +65,18 @@ export class ResumeEditComponent {
         this.router.navigateByUrl('/user/resumes')
       }
     })
+  }
+
+  onFileSelect(event:any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log(file);
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.image64 = reader.result;
+        console.log(this.image64);
+      };
+    }
   }
 }

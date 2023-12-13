@@ -12,6 +12,14 @@
 	<div class="row mt-5 mb-5 justify-content-center">
 		<div class="col-md-8 person-data">
 			<!-- Персональные данные -->
+			<div class="form-file">
+			    <div class="form-control d-flex flex-column">
+			    	<img class="logo" [src]="this.image64"/>
+			    	<div class="d-flex"><label>Фото</label></div>
+			    	<input type="file" accept="image/*,.png,.jpg,.jpeg" class="my-2" (change)="onFileSelect($event)">
+			    </div>
+			</div>
+			
 			<div class="form-floating">
 			    <input formControlName="fullname" type="text" class="form-control shadow-sm" id="name" placeholder="" value="">
 			    <label for="name">ФИО</label>

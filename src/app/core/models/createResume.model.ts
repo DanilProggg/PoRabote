@@ -8,4 +8,6 @@ export interface ICreateResume{
 	experience: string,
 	personal_qualities: string,
 	additional:string,
+	photoImage64: string | ArrayBuffer | null
+
 }
