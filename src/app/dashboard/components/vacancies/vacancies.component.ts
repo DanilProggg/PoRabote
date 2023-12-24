@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, AfterContentChecked } from '@angular/core';
 import { IVacancy } from '../../../core/models/vacancy.model';
+import { IFilter } from '../../../core/models/filter.model';
 import { VacancyService } from '../../../core/services/vacancy.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { VacancyService } from '../../../core/services/vacancy.service';
   templateUrl: './vacancies.component.html',
   styleUrls: ['./vacancies.component.css']
 })
-export class VacanciesComponent implements OnInit{
+export class VacanciesComponent implements OnInit, AfterContentChecked{
   
 
   vacancies : IVacancy[] = [];
@@ -17,6 +18,8 @@ export class VacanciesComponent implements OnInit{
   nextActive:boolean
   backActive:boolean
 
+  @Input('filter') filter: IFilter
+
   constructor(private vacancyService:VacancyService){
 
   }
@@ -24,7 +27,7 @@ export class VacanciesComponent implements OnInit{
   //Подгрузка вакансий при загрузке компонента
   ngOnInit(): void{
     this.current_page = 1
-      this.vacancyService.getPage(this.current_page-1).subscribe( vacancies =>{
+      this.vacancyService.getPage(this.current_page-1, this.filter).subscribe( vacancies =>{
         this.vacancies = vacancies.content
         if(vacancies.last == true){
           this.nextActive = false
@@ -33,14 +36,16 @@ export class VacanciesComponent implements OnInit{
         }
       })
     this.backActive = false
-
   }
 
+  ngAfterContentChecked(){
+    console.log("2")
+  }
 
  next(){
   this.current_page += 1
   
-  this.vacancyService.getPage(this.current_page-1).subscribe( vacancies =>{
+  this.vacancyService.getPage(this.current_page-1,this.filter).subscribe( vacancies =>{
     this.vacancies = vacancies.content
     if(vacancies.last == true){
       this.nextActive = false
@@ -53,7 +58,7 @@ export class VacanciesComponent implements OnInit{
  back(){
   this.current_page -= 1
   
-    this.vacancyService.getPage(this.current_page-1).subscribe( vacancies =>{
+    this.vacancyService.getPage(this.current_page-1, this.filter).subscribe( vacancies =>{
       this.vacancies = vacancies.content
       if(vacancies.first == true){
         this.backActive = false

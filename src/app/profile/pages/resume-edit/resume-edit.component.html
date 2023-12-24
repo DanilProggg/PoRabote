@@ -96,10 +96,10 @@
 
 		
 			<div class="form-floating shadow-sm">
-				<textarea formControlName="personal_qualities" class="form-control" placeholder="" id="personal_qualities"></textarea>
-				<label for="personal_qualities">Личные качества</label>
+				<textarea formControlName="personalQualities" class="form-control" placeholder="" id="personalQualities"></textarea>
+				<label for="personalQualities">Личные качества</label>
 				<span class="ms-1 text-danger"
-				*ngIf="resumeEditForm.get('personal_qualities')?.invalid && resumeEditForm.get('personal_qualities')?.touched"
+				*ngIf="resumeEditForm.get('personalQualities')?.invalid && resumeEditForm.get('personalQualities')?.touched"
 				>
 				Личные качества не должны быть пустыми
 				</span>
@@ -125,4 +125,30 @@
 		</div>
 	</div>
 	</form>
+	<div class="row justify-content-center">
+		<h3 class="mt-4 text-center">Откликнувшиеся пользователи</h3>
+		<div class="col-md-8 mb-4">
+			<div *ngIf="this.users.length==0" class="my-4 empty fs-5 text-center">
+				Пока что никто не откликнулся
+			</div>
+			<app-user-item
+				*ngFor="let user of users"
+				[user]="user"
+			>
+			</app-user-item>
+			<div class="row mt-3">
+				<div class="col-5">
+					<button [disabled]="!backActive" (click)="back()" class="float-right btn btn-primary d-flex justify-content-end align-self-end">Назад</button>
+				</div>
+
+				<div class="col-2 d-flex justify-content-center">
+					<input class="input-page" type="text" [value]="this.current_page">
+				</div>
+
+				<div class="col-5">
+					<button [disabled]="!nextActive" (click)="next()" class="btn btn-primary d-flex justify-content-start">Далее</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

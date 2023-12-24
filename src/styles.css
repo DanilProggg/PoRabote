@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;1,500&display=swap');
+@media screen and (max-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+}
+
 html{
     width:100vw;
     overflow-x: hidden;
@@ -53,4 +59,10 @@ pre{
 
 .h-100vh{
     height:100vh !important;
+}
+
+
+
+.br-5{
+    border-radius:5px !important;
 }

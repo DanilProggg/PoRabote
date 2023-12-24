@@ -19,18 +19,18 @@ export class PersonalComponent implements OnInit{
 
     ngOnInit(){
       this.auth.getUserInfo().subscribe(response=>{
-        let myDate = new Date(response.date);
-        let cur_date = this.date.transform(myDate, 'yyyy-MM-dd');//Приобразование времени из мс в date
+        let msDate = new Date(response.date);
+        let date = this.date.transform(msDate, 'yyyy-MM-dd');//Приобразование времени из мс в date
 
 
 
         this.profileForm = new FormGroup({
         fullname: new FormControl(response.fullname,[Validators.required]),
         phone: new FormControl(response.phone,[Validators.required]),
-        date: new FormControl(cur_date,[Validators.required]),
+        date: new FormControl(date,[Validators.required]),
 
         });
-        console.log(cur_date)
+        console.log(date)
       })
     }
 

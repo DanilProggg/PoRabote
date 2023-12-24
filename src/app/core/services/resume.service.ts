@@ -31,6 +31,18 @@ export class ResumeService {
     return this.http.get<any>('http://localhost:8080/api/resumes/favorites/'+page,this.auth.getCredentials())
   }
 
+  addToFavorites(resume_id: number){
+    return this.http.get<any>('http://localhost:8080/api/resumes/favorites/add/'+resume_id,this.auth.getCredentials())
+  }
+
+  deleteFromFavorites(resume_id: number){
+    return this.http.delete<any>('http://localhost:8080/api/resumes/favorites/delete/'+resume_id,this.auth.getCredentials())
+  }
+
+  getFavoriteStatus(id: number){
+    return this.http.get<boolean>('http://localhost:8080/api/resumes/favorites/status/'+id,this.auth.getCredentials())
+  }
+
   createResume(resume: ICreateResume): Observable<any>{
     return this.http.post<ICreateResume>('http://localhost:8080/api/resumes/all',resume,this.auth.getCredentials())
   }
@@ -52,6 +64,13 @@ export class ResumeService {
 
   updateById(id: number,resume: ICreateResume){
     return this.http.put<ICreateResume>('http://localhost:8080/api/resumes/my/update/'+id, resume, this.auth.getCredentials())
+  }
+
+  toResponse(resume_id: number){
+    return this.http.get<any>('http://localhost:8080/api/resumes/response/'+resume_id,this.auth.getCredentials())
+  }
+  getResponseStatus(resume_id: number){
+    return this.http.get<boolean>('http://localhost:8080/api/resumes/response/status/'+resume_id,this.auth.getCredentials())
   }
 
 

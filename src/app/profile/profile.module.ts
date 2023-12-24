@@ -19,6 +19,7 @@ import { FavoritesResumesComponent } from './pages/favorites-resumes/favorites-r
 import { FavoritesVacanciesComponent } from './pages/favorites-vacancies/favorites-vacancies.component';
 import { FavoriteNoticeItemComponent } from './components/favorite-notice-item/favorite-notice-item.component';
 import { FavoriteResumeItemComponent } from './components/favorite-resume-item/favorite-resume-item.component';
+import { UserItemComponent } from './components/user-item/user-item.component';
 
 
 
@@ -39,6 +40,7 @@ import { FavoriteResumeItemComponent } from './components/favorite-resume-item/f
     FavoritesVacanciesComponent,
     FavoriteNoticeItemComponent,
     FavoriteResumeItemComponent,
+    UserItemComponent,
  
   ],
   imports: [

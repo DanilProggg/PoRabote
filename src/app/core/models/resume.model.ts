@@ -1,15 +1,16 @@
 export interface IResume{
 	id: number,
 	fullname: string,
-
+	owner:any,
 	phone: string,
 	post: string,
 	sex: string,
 	age:any,
 	experience: string,
 	additional:string,
-	personal_qualities: string,
+	personalQualities: string,
 	city: string,
 	date: string,
 	photoImage64: string | ArrayBuffer | null,
+	responded: number[],
 }

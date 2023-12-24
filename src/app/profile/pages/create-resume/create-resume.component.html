@@ -97,10 +97,10 @@
 
 		
 			<div class="form-floating shadow-sm">
-				<textarea formControlName="personal_qualities" class="form-control" placeholder="" id="personal_qualities"></textarea>
-				<label for="personal_qualities">Личные качества</label>
+				<textarea formControlName="personalQualities" class="form-control" placeholder="" id="personalQualities"></textarea>
+				<label for="personalQualities">Личные качества</label>
 				<span class="ms-1 text-danger"
-				*ngIf="resumeForm.get('personal_qualities')?.invalid && resumeForm.get('personal_qualities')?.touched"
+				*ngIf="resumeForm.get('personalQualities')?.invalid && resumeForm.get('personalQualities')?.touched"
 				>
 				Личные качества не должны быть пустыми
 				</span>

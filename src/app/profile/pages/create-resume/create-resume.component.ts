@@ -34,7 +34,7 @@ export class CreateResumeComponent implements OnInit{
         age: new FormControl(cur_date,[Validators.required]),
         city: new FormControl(null,[Validators.required]),
         experience: new FormControl('Нет',[Validators.required]),
-        personal_qualities: new FormControl(null,[Validators.required]),
+        personalQualities: new FormControl(null,[Validators.required]),
         additional: new FormControl('Нет',[Validators.required])
       })
       console.log(response)
@@ -54,9 +54,9 @@ export class CreateResumeComponent implements OnInit{
       age: age_ms,
       city: this.resumeForm.value.city,
       experience: this.resumeForm.value.experience,
-      personal_qualities: this.resumeForm.value.personal_qualities,
+      personalQualities: this.resumeForm.value.personalQualities,
       additional: this.resumeForm.value.additional,
-      phoneImage64: this.image64,
+      photoImage64: this.image64,
     }
     this.resumeService.createResume(resume).subscribe(response=>{},error=>{
       if(error.status == 200){

@@ -1,0 +1,39 @@
+.photo{
+
+	max-height:400px;
+	max-width: 400px;
+	width: 100%;
+ 	height: 100%;
+  	object-fit: cover;
+  	object-position: 50% 50%;
+  	float: left;
+}
+
+
+
+.box{
+	margin-top: 20px;
+}
+
+.response{
+	background: var(--components-bg);
+	color: white;
+	padding: 10px 40px;
+}
+
+.response:hover{
+	background: var(--hover-component-bg);
+	color:white;
+}
+
+.btn-clicked{
+	background:var(--components-bg);
+	color:white;
+}
+
+.btn-favorite{
+	background: var(--components-bg);
+	color: white;
+	padding: 10px 15px;
+}
+

@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row justify-content-center">
 		<h3 class="mt-4 text-center">Редактировать объявление</h3>
-		<div class="col-md-8 pb-5 d-flex flex-column">
+		<div class="col-lg-8 pb-5 d-flex flex-column">
 				<form action=""
 					*ngIf="vacancyEditForm"
 					[formGroup] = "vacancyEditForm"
@@ -86,6 +86,28 @@
 					<button [disabled]="!vacancyEditForm.valid" type="submit" class="btn btn-primary align-self-end">Сохранить</button>					
 				</div>
 				</form>
+			</div>
+			<h3 class="mt-4 text-center">Откликнувшиеся пользователи</h3>
+			<div class="col-lg-8 mb-4">
+				<div *ngIf="this.users.length==0" class="my-4 empty fs-5 text-center">
+					Пока что никто не откликнулся
+				</div>
+				<app-user-item
+					*ngFor="let user of users"
+					[user]="user"
+				>
+				</app-user-item>
+				<div class="row mt-3">
+					<div class="col-5">
+						<button [disabled]="!backActive" (click)="back()" class="float-right btn btn-primary d-flex justify-content-end align-self-end">Назад</button>
+					</div>
+					<div class="col-2 d-flex justify-content-center">
+						<input class="input-page" type="text" [value]="this.current_page">
+					</div>
+					<div class="col-5">
+						<button [disabled]="!nextActive" (click)="next()" class="btn btn-primary d-flex justify-content-start">Далее</button>
+					</div>
+				</div>
 			</div>
 	</div>
 </div>

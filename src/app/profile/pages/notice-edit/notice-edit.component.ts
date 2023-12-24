@@ -4,7 +4,9 @@ import { ReactiveFormsModule,FormGroup, FormControl, Validators } from '@angular
 import { Router, ActivatedRoute } from "@angular/router";
 
 
+import { IUser } from '../../../core/models/user.model';
 import { VacancyService } from '../../../core/services/vacancy.service';
+import { UserService } from '../../../core/services/user.service';
 
 
 @Component({
@@ -18,12 +20,20 @@ export class NoticeEditComponent implements OnInit{
   id:number;
   image64: string | ArrayBuffer | null;
 
-  constructor(private router: Router, private activateRoute: ActivatedRoute, private vacancyService: VacancyService){ 
+  current_page: number
+  nextActive:boolean
+  backActive:boolean
+  responded: number[]
+  users: IUser[] = [];
+
+  constructor(private router: Router, private activateRoute: ActivatedRoute, private vacancyService: VacancyService, private userService: UserService){ 
     this.id = activateRoute.snapshot.params["id"];
   }
 
   ngOnInit(){
-     this.vacancyService.getById(this.id).subscribe(response=>{
+    this.current_page=1;
+
+    this.vacancyService.getById(this.id).subscribe(response=>{
       this.image64 = response.organizationImage64;
       this.vacancyEditForm = new FormGroup({
         post: new FormControl(response.post,[Validators.required]),
@@ -35,7 +45,15 @@ export class NoticeEditComponent implements OnInit{
         work_time: new FormControl(response.work_time,[Validators.required]),
         description: new FormControl(response.description,[Validators.required])
       })
-      console.log(response)
+      this.userService.getUsers(response.responded, this.current_page-1).subscribe(r=>{
+        this.users = r.content
+        this.responded = response.responded
+        if(r.last == true){
+          this.nextActive = false
+        } else {
+          this.nextActive = true
+        }
+      })
     })
   }
 
@@ -64,19 +82,42 @@ export class NoticeEditComponent implements OnInit{
         this.router.navigateByUrl('/user/notices')
       }
     })
-    console.log(vacancy)
   }
 
   onFileSelect(event:any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log(file);
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.image64 = reader.result;
-        console.log(reader.result);
       };
     }
+  }
+
+  next(){
+  this.current_page += 1
+  
+  this.userService.getUsers(this.responded, this.current_page-1).subscribe(r=>{
+        this.users = r.content
+        if(r.last == true){
+          this.nextActive = false
+        }
+      })
+
+
+  this.backActive = true
+ }
+
+ back(){
+  this.current_page -= 1
+  
+    this.userService.getUsers(this.responded, this.current_page-1).subscribe( r =>{
+      this.users = r.content
+      if(r.first == true){
+        this.backActive = false
+      }
+    })
+    this.nextActive = true
   }
 }

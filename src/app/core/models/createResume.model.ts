@@ -6,7 +6,7 @@ export interface ICreateResume{
 	age:any,
 	city: string,
 	experience: string,
-	personal_qualities: string,
+	personalQualities: string,
 	additional:string,
 	photoImage64: string | ArrayBuffer | null
 

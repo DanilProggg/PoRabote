@@ -28,13 +28,14 @@ export class HeaderComponent implements OnInit,DoCheck{
     }
   }
 
-  ngDoCheck(){
+  async ngDoCheck(){
     if(this.cookieService.check('login')){
       this.user = this.cookieService.get('login')
       this.authStatus = true
     } else {
       this.authStatus = false
     }
+    console.log("Хедер")
   }
 
   logout(): void{

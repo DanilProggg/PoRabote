@@ -21,3 +21,13 @@
 	max-height: 80px;
 }
 
+.btn-clicked{
+	background:var(--components-bg);
+	color:white;
+}
+
+.btn-favorite{
+	background: var(--components-bg);
+	color: white;
+	padding: 10px 15px;
+}

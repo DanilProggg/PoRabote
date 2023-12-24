@@ -4,12 +4,13 @@
 		<div class="row mb-1 justify-content-center">
 		<div class="flex-column mt-2 col-md-12">
 			<div class="bar d-flex">
-				<input class="form-control" type="text" placeholder="Искать...">
-				<button class="ms-2 btn btn-primary">Поиск</button>
+				<input id="search-bar" class="form-control" type="text" placeholder="Искать...">
+				<button (click)="setInput()" class="ms-2 btn btn-primary">Поиск</button>
 			</div>
 			<div class="mt-1 filter-items d-flex flex-wrap">
-				<button type="button" class="filter-item mt-1 me-1 py-1 px-2 btn btn-primary d-flex">
-				  Тип занятости: Полный<img class="align-self-center ps-2" src="../../../../assets/images/x-lg.svg">
+				<button *ngIf="this.filter.input" type="button" (click)="clearInput()" class="filter-item mt-1 me-1 py-1 px-2 btn btn-primary d-flex">
+				  {{this.filter.input}}
+				  <img class="align-self-center ps-2" src="../../../../assets/images/x-lg.svg">
 				</button>
 			</div>
 		</div>
@@ -22,7 +23,10 @@
 			<app-filter></app-filter>
 		</div>
 		<div class="col-md-8 col-lg-9 col-xxl-10">
-			<app-vacancies></app-vacancies>
+			<app-vacancies
+				#vacanciesComponent
+				[filter]="filter"
+			></app-vacancies>
 		</div>
 	</div>
 </div>

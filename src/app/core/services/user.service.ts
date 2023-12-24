@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
+import { IUser } from '../models/user.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -69,5 +71,9 @@ export class UserService {
 
   updateInfo(userInfo: any){
     return this.http.post<any>('http://localhost:8080/api/user',userInfo,this.getCredentials())
+  }
+
+  getUsers(list: number[], page: number){
+    return this.http.post<any>('http://localhost:8080/api/users/'+page,list,this.getCredentials())
   }
 }
