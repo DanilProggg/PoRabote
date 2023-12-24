@@ -11,7 +11,7 @@
 				</div>
 				<div class="fw-semibold mt-3 fs-6">{{vacancy.organization}}</div>
 				<div class="fw-semibold mb-3 fs-6">{{vacancy.city}}</div>
-				<div class="m-0 fs-6">Требуемый опыт работы: {{vacancy.experience}}</div>
+				<div class="m-0 fs-6">Требуемый опыт работы: {{vacancy.experience | experience}}</div>
 				<div class="m-0 fs-6">Тип занятости: {{vacancy.work_time}}</div>
 				<div class="m-0 date">Опубликовано {{vacancy.date | date: 'dd.MM.yyyy'}}</div>
 			</div>

@@ -4,7 +4,7 @@ export interface IVacancy{
 	post: string, //есть
 	description:string, //есть
 	work_time: string, //есть
-	experience:string, //есть
+	experience:number, //есть
 	organization: string, //есть
 	organizationImage64: string | ArrayBuffer | null,
 	salary: number, //есть

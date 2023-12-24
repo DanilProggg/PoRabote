@@ -6,7 +6,7 @@ export interface IResume{
 	post: string,
 	sex: string,
 	age:any,
-	experience: string,
+	experience: number,
 	additional:string,
 	personalQualities: string,
 	city: string,

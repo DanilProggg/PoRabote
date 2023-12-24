@@ -1,0 +1,12 @@
+ul{
+	padding:0;
+	list-style-type: none;
+}
+
+a{
+	text-decoration: none;
+	color:white;
+}
+a:hover{
+	color:grey;
+}

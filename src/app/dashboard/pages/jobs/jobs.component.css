@@ -9,3 +9,39 @@
 	font-weight: 500;
 	height:30px;
 }
+
+.input-page{
+	width: 50px;
+	border: none;
+	border-bottom: 1px solid black;
+
+	background: none;
+	outline: none;
+	text-align: center;
+}
+
+.filter-button{
+	display:none;
+}
+
+@media (max-width: 767px){
+	.filter-col{
+		display: none;
+	}
+
+	.filter-button{
+		height:100%;
+		color:white;
+		display:block;
+	}
+
+	.filter-mob{
+		position:absolute;
+		width:100%;
+		height:100%;
+		top:110px;
+		left:0px;
+		z-index: 6;
+	}
+	
+}

@@ -18,8 +18,11 @@ export class HeaderComponent implements OnInit,DoCheck{
   user: string = ""
   authStatus: boolean //Для вывода кнопки "Войти" или Email
 
+  mobileMenu: boolean
+
 
   ngOnInit() {
+    this.mobileMenu = false
     if(this.cookieService.check('login')){
       this.user = this.cookieService.get('login')
       this.authStatus = true
@@ -35,7 +38,6 @@ export class HeaderComponent implements OnInit,DoCheck{
     } else {
       this.authStatus = false
     }
-    console.log("Хедер")
   }
 
   logout(): void{
@@ -44,6 +46,11 @@ export class HeaderComponent implements OnInit,DoCheck{
     this.authStatus = false
     this.router.navigateByUrl('/')
     this.ngOnInit()
+  }
+
+  toggle(){
+    this.mobileMenu = !this.mobileMenu
+    console.log(this.mobileMenu)
   }
 
 }

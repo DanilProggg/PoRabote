@@ -9,3 +9,13 @@
 	font-weight: 500;
 	height:30px;
 }
+
+.input-page{
+	width: 50px;
+	border: none;
+	border-bottom: 1px solid black;
+
+	background: none;
+	outline: none;
+	text-align: center;
+}

@@ -24,7 +24,7 @@ export class CreateNoticeComponent implements OnInit{
       organization: new FormControl(null,[Validators.required]),
       salary: new FormControl(null,[Validators.required]),
       city: new FormControl(null,[Validators.required]),
-      experience: new FormControl('Нет',[Validators.required]),
+      experience: new FormControl(0,[Validators.required]),
       work_time: new FormControl('Полная занятость',[Validators.required]),
       description: new FormControl(null,[Validators.required])
     })
@@ -32,6 +32,7 @@ export class CreateNoticeComponent implements OnInit{
 
 
   toCreate(){
+
     const vacancy = {
       organizationImage64: this.image64,
       post: this.vacancyForm.value.post,

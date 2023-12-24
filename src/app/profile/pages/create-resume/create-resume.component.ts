@@ -33,7 +33,7 @@ export class CreateResumeComponent implements OnInit{
         sex: new FormControl(null,[Validators.required]),
         age: new FormControl(cur_date,[Validators.required]),
         city: new FormControl(null,[Validators.required]),
-        experience: new FormControl('Нет',[Validators.required]),
+        experience: new FormControl(0,[Validators.required]),
         personalQualities: new FormControl(null,[Validators.required]),
         additional: new FormControl('Нет',[Validators.required])
       })

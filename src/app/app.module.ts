@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 import { HeaderComponent } from './ui/header/header.component';
+import { FooterComponent } from './ui/footer/footer.component';
 import { AuthComponent } from './core/auth/auth.component';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -22,6 +23,7 @@ import { CookieService } from 'ngx-cookie-service';
     AppComponent,
     HeaderComponent,
     AuthComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +37,7 @@ import { CookieService } from 'ngx-cookie-service';
     ReactiveFormsModule,
 
   ],
+
   providers: [
     CookieService,
     ],

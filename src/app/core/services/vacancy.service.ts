@@ -15,7 +15,7 @@ import { ICreateVacancy } from '../models/createVacancy.model';
 })
 export class VacancyService {
 
-  constructor(private http: HttpClient, private auth: UserService, private router: Router) {
+  constructor(private http: HttpClient, private auth: UserService) {
   }
 
   getPage(page: number, filter: IFilter) : Observable<any>{

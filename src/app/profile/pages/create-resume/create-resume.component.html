@@ -86,8 +86,8 @@
 
 
 			<div class="form-floating">
-				<textarea formControlName="experience" class="form-control" placeholder="" id="experience"></textarea>
-				<label for="experience">Опыт работы</label>
+				<input type="number" formControlName="experience" class="form-control" placeholder="" id="experience">
+				<label for="experience">Опыт работы(полных лет)</label>
 				<span class="ms-1 text-danger"
 				*ngIf="resumeForm.get('experience')?.invalid && resumeForm.get('experience')?.touched"
 				>

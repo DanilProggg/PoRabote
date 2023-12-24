@@ -6,6 +6,10 @@ header{
 	color: white;
 }
 
+.logo{
+	height: 100%;
+}
+
 .header-bar{
 	height:100%;
 }
@@ -102,6 +106,7 @@ nav{
 .logout-btn{
 	padding:2px 0;
 	font-size: 16px;
+	width:100%;
 }
 
 /* Выпадающий список */
@@ -109,6 +114,45 @@ nav{
 .user_info:hover .user_info-dropdown{
 	display:flex;
 	flex-direction:column;
+}
+
+.mobile-menu{
+	display:flex;
+	background:var(--bs-gray-200);
+	position:absolute;
+	top:60px;
+	left:0;
+	width:100%;
+	z-index:5;
+	color:black;
+}
+.mobile-menu ul{
+	list-style-type: none;
+	padding:5px 10px;
+}
+.email-mobile{
+	padding:18px;
+	border-bottom:1px solid black;
+}
+
+.burger{
+	display:none;
+	color:white;
+}
+
+@media (max-width: 991px){
+	.header-menu,.user_info{
+		display:none;
+	}
+	.header-bar{
+		justify-content:space-between;
+	}
+	.burger{
+		display:block;
+	}
+	.user_name{
+		font-size:24px;
+	}
 }
 
 

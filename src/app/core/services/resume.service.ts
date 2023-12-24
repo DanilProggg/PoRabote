@@ -5,6 +5,7 @@ import { UserService } from './user.service';
 import { Router } from '@angular/router';
 
 import { IResume } from '../models/resume.model';
+import { IFilter } from '../models/filter.model';
 import { ICreateResume } from '../models/createResume.model';
 
 
@@ -19,8 +20,8 @@ export class ResumeService {
 
 
 
-  getPage(page: number) : Observable<any>{
-    return this.http.get<any>('http://localhost:8080/api/resumes/all/' + page)
+  getPage(page: number, filter: IFilter) : Observable<any>{
+    return this.http.post<any>('http://localhost:8080/api/resumes/all/' + page, filter)
   }
 
   getMy(page: number) : Observable<any>{

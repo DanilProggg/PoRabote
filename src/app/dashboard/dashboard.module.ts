@@ -4,17 +4,15 @@ import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
-import { FilterComponent } from './components/filter/filter.component';
 import { JobsComponent } from './pages/jobs/jobs.component';
 import { PeoplesComponent } from './pages/peoples/peoples.component';
-import { VacanciesComponent } from './components/vacancies/vacancies.component';
 import { VacanciesItemComponent } from './components/vacancies-item/vacancies-item.component';
 import { VacancyPageComponent } from './pages/vacancy-page/vacancy-page.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ResumesComponent } from './components/resumes/resumes.component';
 import { ResumeItemComponent } from './components/resume-item/resume-item.component';
-import { ResumeFilterComponent } from './components/resume-filter/resume-filter.component';
 import { ResumePageComponent } from './pages/resume-page/resume-page.component';
+import { ExperiencePipe } from '../core/pipes/experience.pipe';
+
 
 
 
@@ -24,16 +22,13 @@ import { ResumePageComponent } from './pages/resume-page/resume-page.component';
 @NgModule({
     declarations: [
         DashboardComponent,
-        FilterComponent,
         JobsComponent,
         PeoplesComponent,
-        VacanciesComponent,
         VacanciesItemComponent,
         VacancyPageComponent,
-        ResumesComponent,
         ResumeItemComponent,
-        ResumeFilterComponent,
         ResumePageComponent,
+        ExperiencePipe,
 
     
   ],
@@ -42,6 +37,8 @@ import { ResumePageComponent } from './pages/resume-page/resume-page.component';
         HttpClientModule,
         DashboardRoutingModule
     ],
-    providers: [],
+    providers: [
+        ExperiencePipe
+        ],
 })
 export class DashboardModule { }

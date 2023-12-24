@@ -4,9 +4,8 @@
 			<!-- Лого -->
 			<a class="me-5 title justify-content-start"
 				routerLink="/dashboard"
-            	>ПоРаботе</a>
+            	><img class="logo" src="../assets/images/logo.png" alt=""></a>
 			<div class="header-menu">
-				<!-- Навигационные ссылки -->
 				<nav class="">
 				<a class="nav-item"
 				   routerLink="/dashboard/resumes"
@@ -38,7 +37,26 @@
 						<button (click)="logout()" class="logout-btn mt-1 btn btn-primary" >Выйти</button>
 					</div>
 				</div>
-				<a class="nav-item" *ngIf="!authStatus" routerLink="/auth">Войти</a>
+			</div>
+
+			<!-- Мобильное окно с навигацией-->
+			<a class="nav-item" *ngIf="!authStatus" routerLink="/auth">Войти</a>
+			<img *ngIf="authStatus" (click)="toggle()" class="burger" src="../assets/images/burger.svg" alt="">
+			<div *ngIf="mobileMenu" class="mobile-menu shadow-sm d-flex flex-column">
+				<div  *ngIf="authStatus">
+					<div class="d-flex email-mobile">
+						<div class="user_name">{{user}}</div>
+					</div> 
+					<ul>
+						<li><a routerLink="/user/profile" class="dropdown-item">Персональные данные</a></li>
+						<li><a routerLink="/user/favorites/vacancies" class="dropdown-item">Изобраное</a></li>
+						<li><a routerLink="/user/resumes" class="dropdown-item">Мои резюме</a></li>
+						<li><a routerLink="/user/create-resume" class="dropdown-item">Создать резюме</a></li>
+						<li><a routerLink="/user/notices" class="dropdown-item">Мои объявления</a></li>
+						<li><a routerLink="/user/create-notice" class="dropdown-item">Создать объявление</a></li>
+						<li><button (click)="logout()" class="logout-btn mt-1 btn btn-primary" >Выйти</button></li>
+					</ul>
+				</div>
 			</div>
 	</div>
 </header>

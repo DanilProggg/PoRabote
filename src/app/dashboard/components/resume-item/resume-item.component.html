@@ -7,7 +7,7 @@
 				</a>
 				<div class="m-0 fs-6">Пол: {{resume.sex}}</div>
 				<div class="fw-semibold mb-3 fs-6">{{resume.city}}</div>
-				<div class="m-0 fs-6">Опыт работы: {{resume.experience}}</div>
+				<div class="m-0 fs-6">Опыт работы: {{resume.experience | experience}}</div>
 				<div class="m-0 date">Опубликовано {{resume.date | date: 'dd.MM.yyyy'}}</div>
 			</div>
 		</div>

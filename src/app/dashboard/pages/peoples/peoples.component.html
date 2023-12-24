@@ -1,15 +1,24 @@
 <!-- Структура главного экрна поиска вакансий -->
 <div class="search-bar container-field mb-4 pb-1 shadow-sm">
-	<div class="container">
+	<div class="container-md">
 		<div class="row mb-1 justify-content-center">
 		<div class="flex-column mt-2 col-md-12">
 			<div class="bar d-flex">
-				<input class="form-control" type="text" placeholder="Искать...">
-				<button class="ms-2 btn btn-primary">Поиск</button>
+				<input id="search-bar" class="form-control" type="text" placeholder="Искать...">
+				<button (click)="toSearch()" class="ms-2 btn btn-primary">Поиск</button>
 			</div>
 			<div class="mt-1 filter-items d-flex flex-wrap">
-				<button type="button" class="filter-item mt-1 me-1 py-1 px-2 btn btn-primary d-flex">
-				  Тип занятости: Полный<img class="align-self-center ps-2" src="../../../../assets/images/x-lg.svg">
+				<button *ngIf="this.filter.input" type="button" (click)="toClearInput()" class="filter-item mt-1 me-1 py-1 px-2 btn btn-primary d-flex">
+				  {{this.filter.input}}
+				  <img class="align-self-center ps-2" src="../../../../assets/images/x-lg.svg">
+				</button>
+				<button *ngIf="this.filter.city" type="button" (click)="toClearCity()" class="filter-item mt-1 me-1 py-1 px-2 btn btn-primary d-flex">
+				  Город: {{this.filter.city}}
+				  <img class="align-self-center ps-2" src="../../../../assets/images/x-lg.svg">
+				</button>
+				<button *ngIf="this.filter.experience<99" type="button" (click)="toClearExperience()" class="filter-item mt-1 me-1 py-1 px-2 btn btn-primary d-flex">
+				  Опыт работы: {{this.filter.experience | experience}}
+				  <img class="align-self-center ps-2" src="../../../../assets/images/x-lg.svg">
 				</button>
 			</div>
 		</div>
@@ -19,10 +28,74 @@
 <div class="container mb-5">
 	<div class="mt-2 row">
 		<div class="col-md-4 col-lg-3 col-xxl-2">
-			<app-resume-filter></app-resume-filter>
+			<!-- ФИЛЬТР -->
+
+			<div class="container-field px-3 py-1 fs-7 bg-white shadow-sm">
+				<div class="row">
+					<div class="col-12">
+						
+						
+						<div class="mb-3">
+							<div class="fs-6 fw-semibold mb-1">Город</div>
+						    <input id="city" (keyup.enter)="setCity()"type="text" class="form-control" placeholder="Введите город">
+						</div>
+
+					</div>
+				</div>
+
+
+				<!-- Опыт работы -->
+
+				<div class="mb-3">
+					<div class="fs-6 fw-semibold mb-1">Опыт работы</div>
+					<div class="row">
+						<div class="col-2"><input (click)="setExperience()" name="experience" class="form-check-input" type="radio" value="0" id="none"></div>
+						<div class="col-10"><label name="experience" class="form-check-label" for="none">Нет</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2"><input (click)="setExperience()" name="experience" class="form-check-input" type="radio" value="1" id="1year"></div>
+						<div class="col-10"><label class="form-check-label" for="1year">От 1 года</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2"><input (click)="setExperience()" name="experience" class="form-check-input" type="radio" value="3" id="3years"></div>
+						<div class="col-10"><label class="form-check-label" for="3years">От 3 лет</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2"><input (click)="setExperience()" name="experience" class="form-check-input" type="radio" value="5" id="5years"></div>
+						<div class="col-10"><label class="form-check-label" for="5years">От 5 лет</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2"><input (click)="setExperience()" name="experience" class="form-check-input" type="radio" value="10" id="10years"></div>
+						<div class="col-10"><label class="form-check-label" for="10years">От 10 лет</label>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="col-md-8 col-lg-9 col-xxl-10">
-			<app-resumes></app-resumes>
+			<div class="container-field">
+				<div class="row">
+					<app-resume-item
+						*ngFor="let resume of resumes"
+						[resume]="resume"
+					></app-resume-item>
+				</div>
+				<div class="row mt-3">
+					<div class="col-5">
+						<button [disabled]="!backActive" (click)="back()" class="float-right btn btn-primary d-flex justify-content-end align-self-end">Назад</button>
+					</div>
+					<div class="col-2 d-flex justify-content-center">
+						<input class="input-page" type="text" [value]="this.current_page">
+					</div>
+					<div class="col-5">
+						<button [disabled]="!nextActive" (click)="next()" class="btn btn-primary d-flex justify-content-start">Далее</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

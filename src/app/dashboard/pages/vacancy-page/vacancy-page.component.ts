@@ -22,8 +22,10 @@ export class VacancyPageComponent implements OnInit{
   ngOnInit(){
     this.responsed = false
     this.vacancyService.getById(this.id).subscribe(response=>{
+      console.log(response)
       this.vacancyService.getResponseStatus(this.id).subscribe(r=>{
         this.responsed = r
+
       })
 
       this.vacancyService.getFavoriteStatus(this.id).subscribe(r=>{

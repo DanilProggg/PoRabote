@@ -10,7 +10,6 @@ import { ResumesComponent } from './pages/resumes/resumes.component';
 import { CreateResumeComponent } from './pages/create-resume/create-resume.component';
 import { ResumesItemComponent } from './components/resumes-item/resumes-item.component';
 import { NoticesItemComponent } from './components/notices-item/notices-item.component';
-import { VacanciesComponent } from '../dashboard/components/vacancies/vacancies.component';
 import { VacanciesItemComponent } from '../dashboard/components/vacancies-item/vacancies-item.component';
 import { ResumeEditComponent } from './pages/resume-edit/resume-edit.component';
 import { NoticeEditComponent } from './pages/notice-edit/notice-edit.component';
