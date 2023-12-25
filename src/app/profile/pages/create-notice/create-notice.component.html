@@ -1,5 +1,5 @@
 <div class="container">
-	<h3 class="my-3 d-flex justify-content-center">Создание объявления</h3>
+	<h3 class="my-3 d-flex justify-content-center">Создание объявление</h3>
 
 
 
@@ -38,7 +38,7 @@
 			    </div>
 
 			    <div class="form-floating">
-			    	<input formControlName="salary" type="text" class="form-control shadow-sm" id="salary" placeholder="" value="">
+			    	<input formControlName="salary" type="number" class="form-control shadow-sm" id="salary" placeholder="" value="">
 			    	<label for="salary">Зарплата от</label>
 			    	<span class="ms-1 text-danger"
 					    *ngIf="vacancyForm.get('salary')?.invalid && vacancyForm.get('salary')?.touched"

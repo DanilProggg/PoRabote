@@ -1,5 +1,5 @@
-<header class="container-fluid shadow-sm">
-	<div class="container header-bar d-flex">
+<header class="container-field shadow-sm">
+	<div class="container-md header-bar d-flex">
 
 			<!-- Лого -->
 			<a class="me-5 title justify-content-start"
@@ -48,12 +48,12 @@
 						<div class="user_name">{{user}}</div>
 					</div> 
 					<ul>
-						<li><a routerLink="/user/profile" class="dropdown-item">Персональные данные</a></li>
-						<li><a routerLink="/user/favorites/vacancies" class="dropdown-item">Изобраное</a></li>
-						<li><a routerLink="/user/resumes" class="dropdown-item">Мои резюме</a></li>
-						<li><a routerLink="/user/create-resume" class="dropdown-item">Создать резюме</a></li>
-						<li><a routerLink="/user/notices" class="dropdown-item">Мои объявления</a></li>
-						<li><a routerLink="/user/create-notice" class="dropdown-item">Создать объявление</a></li>
+						<li><a (click)="toggle()" routerLink="/user/profile" class="dropdown-item">Персональные данные</a></li>
+						<li><a (click)="toggle()" routerLink="/user/favorites/vacancies" class="dropdown-item">Изобраное</a></li>
+						<li><a (click)="toggle()" routerLink="/user/resumes" class="dropdown-item">Мои резюме</a></li>
+						<li><a (click)="toggle()" routerLink="/user/create-resume" class="dropdown-item">Создать резюме</a></li>
+						<li><a (click)="toggle()" routerLink="/user/notices" class="dropdown-item">Мои объявления</a></li>
+						<li><a (click)="toggle()"  routerLink="/user/create-notice" class="dropdown-item">Создать объявление</a></li>
 						<li><button (click)="logout()" class="logout-btn mt-1 btn btn-primary" >Выйти</button></li>
 					</ul>
 				</div>
